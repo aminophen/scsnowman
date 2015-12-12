@@ -1,0 +1,66 @@
+% platex + dvipdfmx
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[margin=27truemm]{geometry}
+\usepackage{scsnowman}
+\title{\textsf{scsnowman}パッケージの実用例}
+\author{アセトアミノフェン}
+\begin{document}
+\maketitle
+
+% ふつうのゆきだるま
+これはゆきだるま\scsnowman です。
+
+% 雪ありゆきだるま
+今日の天気は\scsnowman[snow]です。
+
+% 帽子をかぶったゆきだるま
+ゆきだるま\scsnowman[hat]が帽子をかぶりました。
+
+% 帽子をかぶったゆきだるま（帽子の色は青）
+私は青い帽子をかぶった\scsnowman[hat=blue]が大好きです。
+
+% 帽子とマフラー付（マフラーの色は赤）
+マフラー\scsnowman[hat=true,muffler=red]を付けてあげましょう。
+
+% 腕あり
+腕も作って\scsnowman[hat=true,muffler=red,arms=true]あげましょう。
+
+% サイズ変更
+小\scsnowman、
+中\scsnowman[scale=3]、
+大\scsnowman[scale=5]。
+
+% ゆきだるま三兄弟
+\begin{table}[htb]
+  \begin{tabular}{ccc}
+    \texttt{U+2603} & \texttt{U+26C4} & \texttt{U+26C7} \\
+    \texttt{SNOWMAN} & \texttt{SNOWMAN WITHOUT SNOW} & \texttt{BLACK SNOWMAN} \\
+    \scsnowman[scale=5,body=false,snow=true] & \scsnowman[scale=5,body=false,snow=false] & \scsnowman[scale=5,body=true,snow=true]
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \begin{tabular}{ccc}
+    \texttt{U+2603} & \texttt{U+26C4} & \texttt{U+26C7} \\
+    \texttt{SNOWMAN} & \texttt{SNOWMAN WITHOUT SNOW} & \texttt{BLACK SNOWMAN} \\
+    \scsnowman[scale=5,body=false,snow=true,muffler=true] & \scsnowman[scale=5,body=false,snow=false,muffler=true] & \scsnowman[scale=5,body=true,snow=true,muffler=true]
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \begin{tabular}{ccc}
+    \texttt{U+2603} & \texttt{U+26C4} & \texttt{U+26C7} \\
+    \texttt{SNOWMAN} & \texttt{SNOWMAN WITHOUT SNOW} & \texttt{BLACK SNOWMAN} \\
+    \scsnowman[scale=5,body=false,snow=true,hat=true,arms=true] & \scsnowman[scale=5,body=false,snow=false,hat=true,arms=true] & \scsnowman[scale=5,body=true,snow=true,hat=true,arms=true]
+  \end{tabular}
+\end{table}
+
+\begin{table}[htb]
+  \begin{tabular}{ccc}
+    \texttt{U+????} & \texttt{U+????} & \texttt{U+????} \\
+    \texttt{RED SNOWMAN} & \texttt{BLUE SNOWMAN} & \texttt{GREEN SNOWMAN} \\
+    \scsnowman[scale=5,body=red,snow=red,hat=red] & \scsnowman[scale=5,body=blue,hat=blue,arms=blue,muffler=blue] & \scsnowman[scale=5,body=green,snow=green,arms=green]
+  \end{tabular}
+\end{table}
+
+\end{document}

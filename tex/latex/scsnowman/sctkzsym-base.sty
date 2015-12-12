@@ -1,0 +1,46 @@
+%%
+%% This is file `sctkzsym-base.sty'.
+%% 
+%% Copyright 2015- Acetaminophen (Hironobu YAMASHITA)
+%%   Email   :  h.y.acetaminophen[a t]gmail.com
+%%   GitHub  :  https://github.com/aminophen
+%%   Blog    :  http://acetaminophen.hatenablog.com/
+%%   Twitter :  @aminophen
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sctkzsym-base}[2015/12/13 v0.1 Base for emoji variants using TikZ]
+\RequirePackage{tikz}
+\RequirePackage{keyval}
+%
+% key definitions
+\newcommand{\sctkzsym@define@key@withbool}[2]{%
+  \define@key{sctkzsym@#1}{#2}[true]{\expandafter\def\csname sctkzsym@#1@#2\endcsname{##1}}%
+  \expandafter\newif\csname ifsctkzsym@#1@#2\endcsname
+}
+\newcommand{\sctkzsym@define@key@wodefault}[2]{%
+  \define@key{sctkzsym@#1}{#2}{\expandafter\def\csname sctkzsym@#1@#2\endcsname{##1}}%
+}
+%
+% key handling
+\newcommand{\sctkzsym@hndl@key@withbool}[2]{%
+  \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@false\relax
+    \csname sctkzsym@#1@#2false\endcsname % <key>=false
+  \else
+    \csname sctkzsym@#1@#2true\endcsname  % <key>=true/<color>
+    \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@true\relax
+      % <key>=true; <default-color>
+      \expandafter\def\csname sctkzsym@#1@#2\endcsname{\sctkzsym@defaultcolor}%
+    \fi
+  \fi
+}
+%
+% setup for tikzpicture
+\newlength{\sctkzsym@coord@scl}
+\newcommand*{\set@sctkzsym@coord@scl}[1]{\pgfmathsetlength{\sctkzsym@coord@scl}{#1pt}}
+\newcommand{\sctkzsym@defaultcolor}{black}
+\newcommand{\sctkzsym@defaultanticolor}{white}
+
+\endinput
+
+%%
+%% End of file `sctkzsym-base.sty'.
