@@ -8,7 +8,7 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2015/12/13 v0.1 Base for emoji variants using TikZ]
+\ProvidesPackage{sctkzsym-base}[2015/12/19 v0.2 Base for emoji variants using TikZ]
 \RequirePackage{tikz}
 \RequirePackage{keyval}
 %
@@ -22,6 +22,8 @@
 }
 %
 % key handling
+\def\sctkzsym@true{true}   % for strcmp
+\def\sctkzsym@false{false} % for strcmp
 \newcommand{\sctkzsym@hndl@key@withbool}[2]{%
   \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@false\relax
     \csname sctkzsym@#1@#2false\endcsname % <key>=false
