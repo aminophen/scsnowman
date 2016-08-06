@@ -8,7 +8,7 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2016/08/06 v0.3 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2016/08/06 v0.4 Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2016/08/06]
@@ -23,6 +23,27 @@
     \fi
   }
   \makeqedsnowman % default to snowman
+\fi
+%
+% change item label (joke)
+\ifsctkzsym@item
+  \def\sctkzsym@snowman@labelitemi{\scsnowman[hat=true,muffler=red]}
+  \def\sctkzsym@snowman@labelitemii{\scsnowman[hat=true,muffler=blue]}
+  \def\sctkzsym@snowman@labelitemiii{\scsnowman[hat=true,muffler=green]}
+  \def\sctkzsym@snowman@labelitemiv{\scsnowman[hat=true,muffler=yellow]}
+  \newcommand{\makeitemsnowman}{%
+    \ifx\labelitemi\sctkzsym@snowman@labelitemi\else
+      \let\sctkzsym@saved@labelitemi\labelitemi
+      \let\sctkzsym@saved@labelitemii\labelitemii
+      \let\sctkzsym@saved@labelitemiii\labelitemiii
+      \let\sctkzsym@saved@labelitemiv\labelitemiv
+      \let\labelitemi\sctkzsym@snowman@labelitemi
+      \let\labelitemii\sctkzsym@snowman@labelitemii
+      \let\labelitemiii\sctkzsym@snowman@labelitemiii
+      \let\labelitemiv\sctkzsym@snowman@labelitemiv
+    \fi
+  }
+  \makeitemsnowman % default to snowman
 \fi
 %
 % key initialization

@@ -8,16 +8,19 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2016/08/06 v0.3 Base for emoji variants using TikZ]
+\ProvidesPackage{sctkzsym-base}[2016/08/06 v0.4 Base for emoji variants using TikZ]
 \RequirePackage{tikz}
 \RequirePackage{keyval}
 %
 % prepare for options
 \newif\ifsctkzsym@qed
 \sctkzsym@qedfalse
+\newif\ifsctkzsym@item
+\sctkzsym@itemfalse
 %
 % options
 \DeclareOption{qed}{\sctkzsym@qedtrue}
+\DeclareOption{item}{\sctkzsym@itemtrue}
 \ProcessOptions\relax
 %
 % save QED symbol before change (joke)
@@ -28,6 +31,20 @@
   \fi
   \newcommand{\makeqedother}{%
     \let\qedsymbol\sctkzsym@saved@qedsymbol
+  }
+\fi
+%
+% save item label before change (joke)
+\ifsctkzsym@item
+  \let\sctkzsym@saved@labelitemi\labelitemi
+  \let\sctkzsym@saved@labelitemii\labelitemii
+  \let\sctkzsym@saved@labelitemiii\labelitemiii
+  \let\sctkzsym@saved@labelitemiv\labelitemiv
+  \newcommand{\makeitemother}{%
+    \let\labelitemi\sctkzsym@saved@labelitemi
+    \let\labelitemii\sctkzsym@saved@labelitemii
+    \let\labelitemiii\sctkzsym@saved@labelitemiii
+    \let\labelitemiv\sctkzsym@saved@labelitemiv
   }
 \fi
 %
