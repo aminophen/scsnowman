@@ -1,16 +1,35 @@
 %%
 %% This is file `sctkzsym-base.sty'.
 %% 
-%% Copyright 2015- Acetaminophen (Hironobu YAMASHITA)
+%% Copyright 2015-2016 Acetaminophen (Hironobu YAMASHITA)
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2015/12/19 v0.2 Base for emoji variants using TikZ]
+\ProvidesPackage{sctkzsym-base}[2016/08/06 v0.3 Base for emoji variants using TikZ]
 \RequirePackage{tikz}
 \RequirePackage{keyval}
+%
+% prepare for options
+\newif\ifsctkzsym@qed
+\sctkzsym@qedfalse
+%
+% options
+\DeclareOption{qed}{\sctkzsym@qedtrue}
+\ProcessOptions\relax
+%
+% save QED symbol before change (joke)
+\ifsctkzsym@qed
+  \RequirePackage{amsthm}
+  \ifx\sctkzsym@saved@qedsymbol\@undefined
+    \let\sctkzsym@saved@qedsymbol\qedsymbol
+  \fi
+  \newcommand{\makeqedother}{%
+    \let\qedsymbol\sctkzsym@saved@qedsymbol
+  }
+\fi
 %
 % key definitions
 \newcommand{\sctkzsym@define@key@withbool}[2]{%
@@ -41,8 +60,7 @@
 \newcommand*{\set@sctkzsym@coord@scl}[1]{\pgfmathsetlength{\sctkzsym@coord@scl}{#1pt}}
 \newcommand{\sctkzsym@defaultcolor}{black}
 \newcommand{\sctkzsym@defaultanticolor}{white}
-
+%
 \endinput
-
 %%
 %% End of file `sctkzsym-base.sty'.

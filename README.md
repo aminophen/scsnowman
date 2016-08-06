@@ -25,6 +25,8 @@ See license.txt.
 ### Version History
 
  - 2015-12-13 Version 0.1  (First commit)
+ - 2015-12-19 Version 0.2  (Trivial fix)
+ - 2016-08-06 Version 0.3  (Add "qed" option)
 
 --------------------
 Hironobu YAMASHITA (aka. "Acetaminophen" or "@aminophen")

@@ -1,15 +1,29 @@
 %%
 %% This is file `scsnowman.sty'.
 %% 
-%% Copyright 2015- Acetaminophen (Hironobu YAMASHITA)
+%% Copyright 2015-2016 Acetaminophen (Hironobu YAMASHITA)
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2015/12/19 v0.2 Snowman variants using TikZ]
-\RequirePackage{sctkzsym-base}
+\ProvidesPackage{scsnowman}[2016/08/06 v0.3 Snowman variants using TikZ]
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
+\ProcessOptions\relax
+\RequirePackage{sctkzsym-base}[2016/08/06]
+%
+% change QED symbol (joke)
+\ifsctkzsym@qed
+  \def\sctkzsym@snowman@qedsymbol{\scsnowman[hat=true,muffler=red]}
+  \newcommand{\makeqedsnowman}{%
+    \ifx\qedsymbol\sctkzsym@snowman@qedsymbol\else
+      \let\sctkzsym@saved@qedsymbol\qedsymbol
+      \let\qedsymbol\sctkzsym@snowman@qedsymbol
+    \fi
+  }
+  \makeqedsnowman % default to snowman
+\fi
 %
 % key initialization
 \newcommand\sctkzsym@snowman@initkeys{%
@@ -172,8 +186,7 @@
   \end{tikzpicture}%
   \sctkzsym@snowman@initkeys
 }
-
+%
 \endinput
-
 %%
 %% End of file `scsnowman.sty'.
