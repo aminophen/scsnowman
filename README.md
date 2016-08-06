@@ -28,6 +28,8 @@ See license.txt.
  - 2015-12-19 Version 0.2  (Trivial fix)
  - 2016-08-06 Version 0.3  (Add "qed" option)
  - 2016-08-06 Version 0.4  (Add "item" option)
+ - 2016-08-07 Version 0.5  (Add new command `scsnowmandefault`)
+ - 2016-08-07 Version 0.5a (Add "init" option; fix default for qed/item)
 
 --------------------
 Hironobu YAMASHITA (aka. "Acetaminophen" or "@aminophen")

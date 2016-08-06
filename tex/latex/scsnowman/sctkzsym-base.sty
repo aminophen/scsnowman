@@ -8,7 +8,7 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2016/08/06 v0.4 Base for emoji variants using TikZ]
+\ProvidesPackage{sctkzsym-base}[2016/08/07 v0.5a Base for emoji variants using TikZ]
 \RequirePackage{tikz}
 \RequirePackage{keyval}
 %
@@ -68,6 +68,18 @@
     \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@true\relax
       % <key>=true; <default-color>
       \expandafter\def\csname sctkzsym@#1@#2\endcsname{\sctkzsym@defaultcolor}%
+    \fi
+  \fi
+}
+\newcommand{\sctkzsym@hndl@key@onlybool}[2]{%
+  \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@false\relax
+    \csname sctkzsym@#1@#2false\endcsname % <key>=false
+  \else
+    \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@true\relax
+      \csname sctkzsym@#1@#2true\endcsname  % <key>=true
+    \else
+      \PackageError{sctkzsym-base}{Only true/false allowed for key `#2'}\@ehc
+      \csname sctkzsym@#1@#2false\endcsname % <key>=false
     \fi
   \fi
 }

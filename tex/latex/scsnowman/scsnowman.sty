@@ -8,14 +8,14 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2016/08/07 v0.5 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2016/08/07 v0.5a Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
-\RequirePackage{sctkzsym-base}[2016/08/06]
+\RequirePackage{sctkzsym-base}[2016/08/07]
 %
 % change QED symbol (joke)
 \ifsctkzsym@qed
-  \def\sctkzsym@snowman@qedsymbol{\scsnowman[hat=true,muffler=red]}
+  \def\sctkzsym@snowman@qedsymbol{\scsnowman[init,hat=true,muffler=red]}
   \newcommand{\makeqedsnowman}{%
     \ifx\qedsymbol\sctkzsym@snowman@qedsymbol\else
       \let\sctkzsym@saved@qedsymbol\qedsymbol
@@ -27,10 +27,10 @@
 %
 % change item label (joke)
 \ifsctkzsym@item
-  \def\sctkzsym@snowman@labelitemi{\scsnowman[hat=true,muffler=red]}
-  \def\sctkzsym@snowman@labelitemii{\scsnowman[hat=true,muffler=blue]}
-  \def\sctkzsym@snowman@labelitemiii{\scsnowman[hat=true,muffler=green]}
-  \def\sctkzsym@snowman@labelitemiv{\scsnowman[hat=true,muffler=yellow]}
+  \def\sctkzsym@snowman@labelitemi{\scsnowman[init,hat=true,muffler=red]}
+  \def\sctkzsym@snowman@labelitemii{\scsnowman[init,hat=true,muffler=blue]}
+  \def\sctkzsym@snowman@labelitemiii{\scsnowman[init,hat=true,muffler=green]}
+  \def\sctkzsym@snowman@labelitemiv{\scsnowman[init,hat=true,muffler=yellow]}
   \newcommand{\makeitemsnowman}{%
     \ifx\labelitemi\sctkzsym@snowman@labelitemi\else
       \let\sctkzsym@saved@labelitemi\labelitemi
@@ -48,6 +48,7 @@
 %
 % key initialization
 \newcommand\sctkzsym@snowman@initkeys{%
+  \def\sctkzsym@snowman@init{false}%
   \def\sctkzsym@snowman@scale{1}%
   \def\sctkzsym@snowman@body{false}%
   \def\sctkzsym@snowman@eyes{true}%  default on
@@ -63,6 +64,7 @@
 \sctkzsym@snowman@defaultkeys
 %
 % key definitions
+\sctkzsym@define@key@withbool{snowman}{init}
 \sctkzsym@define@key@wodefault{snowman}{scale}
 \sctkzsym@define@key@withbool{snowman}{body}
 \sctkzsym@define@key@withbool{snowman}{eyes}
@@ -76,8 +78,14 @@
 \DeclareRobustCommand\scsnowman[1][]{%
   % key initialization using default
   \sctkzsym@snowman@defaultkeys
-  % handling <key>=<value>
+  % read <key>=<value>
   \setkeys{sctkzsym@snowman}{#1}%
+  % check init; if init=true, initialize and read keys again
+  \sctkzsym@hndl@key@onlybool{snowman}{init}%
+  \ifsctkzsym@snowman@init
+    \sctkzsym@snowman@initkeys
+    \setkeys{sctkzsym@snowman}{#1,init=false}%
+  \fi
   %
   % check body; determine whether "black snowman" or "white snowman"
   \sctkzsym@hndl@key@withbool{snowman}{body}%
@@ -217,8 +225,10 @@
 % definition of \scsnowmandefault{...}
 \newcommand{\scsnowmandefault}[1]{%
   \renewcommand{\sctkzsym@snowman@defaultkeys}{%
+    % key initialization
     \sctkzsym@snowman@initkeys
-    \setkeys{sctkzsym@snowman}{#1}%
+    % handling <key>=<value> (init=true is silently ignored)
+    \setkeys{sctkzsym@snowman}{#1,init=false}%
   }%
   \sctkzsym@snowman@defaultkeys
 }
