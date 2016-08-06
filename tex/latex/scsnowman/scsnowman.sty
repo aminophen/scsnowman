@@ -8,7 +8,7 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2016/08/06 v0.4 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2016/08/07 v0.5 Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2016/08/06]
@@ -57,7 +57,10 @@
   \def\sctkzsym@snowman@muffler{false}%
   \def\sctkzsym@snowman@snow{false}%
 }
-\sctkzsym@snowman@initkeys
+\newcommand{\sctkzsym@snowman@defaultkeys}{%
+  \sctkzsym@snowman@initkeys
+}
+\sctkzsym@snowman@defaultkeys
 %
 % key definitions
 \sctkzsym@define@key@wodefault{snowman}{scale}
@@ -71,6 +74,8 @@
 %
 % definition of \scsnowman[...]
 \DeclareRobustCommand\scsnowman[1][]{%
+  % key initialization using default
+  \sctkzsym@snowman@defaultkeys
   % handling <key>=<value>
   \setkeys{sctkzsym@snowman}{#1}%
   %
@@ -205,7 +210,17 @@
       \sctkzsym@snowman@snowpath (0.94,0.23) circle (0.04);
     \fi
   \end{tikzpicture}%
-  \sctkzsym@snowman@initkeys
+  % key initialization using default
+  \sctkzsym@snowman@defaultkeys
+}
+%
+% definition of \scsnowmandefault{...}
+\newcommand{\scsnowmandefault}[1]{%
+  \renewcommand{\sctkzsym@snowman@defaultkeys}{%
+    \sctkzsym@snowman@initkeys
+    \setkeys{sctkzsym@snowman}{#1}%
+  }%
+  \sctkzsym@snowman@defaultkeys
 }
 %
 \endinput
