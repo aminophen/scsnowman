@@ -8,7 +8,7 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2016/08/07 v0.5a Base for emoji variants using TikZ]
+\ProvidesPackage{sctkzsym-base}[2016/08/08 v0.7 Base for emoji variants using TikZ]
 \RequirePackage{tikz}
 \RequirePackage{keyval}
 %
@@ -80,6 +80,25 @@
     \else
       \PackageError{sctkzsym-base}{Only true/false allowed for key `#2'}\@ehc
       \csname sctkzsym@#1@#2false\endcsname % <key>=false
+    \fi
+  \fi
+}
+\newcommand{\sctkzsym@hndl@key@wodefault}[5]{%
+  \def\@tempa{#3}%
+  \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
+    \csname sctkzsym@#1@#2@c\endcsname\@ne
+  \else
+    \def\@tempa{#4}%
+    \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
+      \csname sctkzsym@#1@#2@c\endcsname\tw@
+    \else
+      \def\@tempa{#5}%
+      \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
+        \csname sctkzsym@#1@#2@c\endcsname\thr@@
+      \else
+        \PackageError{sctkzsym-base}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
+        \csname sctkzsym@#1@#2@c\endcsname\z@
+      \fi
     \fi
   \fi
 }

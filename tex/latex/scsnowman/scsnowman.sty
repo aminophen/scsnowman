@@ -8,10 +8,10 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2016/08/08 v0.6 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2016/08/08 v0.7 Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
-\RequirePackage{sctkzsym-base}[2016/08/07]
+\RequirePackage{sctkzsym-base}[2016/08/08]
 %
 % change QED symbol (joke)
 \ifsctkzsym@qed
@@ -52,6 +52,7 @@
   \def\sctkzsym@snowman@scale{1}%
   \def\sctkzsym@snowman@body{false}%
   \def\sctkzsym@snowman@eyes{true}%  default on
+  \def\sctkzsym@snowman@mouthshape{smile}%
   \def\sctkzsym@snowman@mouth{true}% default on
   \def\sctkzsym@snowman@hat{false}%
   \def\sctkzsym@snowman@arms{false}%
@@ -69,12 +70,16 @@
 \sctkzsym@define@key@wodefault{snowman}{scale}
 \sctkzsym@define@key@withbool{snowman}{body}
 \sctkzsym@define@key@withbool{snowman}{eyes}
+\sctkzsym@define@key@wodefault{snowman}{mouthshape}
 \sctkzsym@define@key@withbool{snowman}{mouth}
 \sctkzsym@define@key@withbool{snowman}{hat}
 \sctkzsym@define@key@withbool{snowman}{arms}
 \sctkzsym@define@key@withbool{snowman}{muffler}
 \sctkzsym@define@key@withbool{snowman}{buttons}
 \sctkzsym@define@key@withbool{snowman}{snow}
+%
+% count definitions for \sctkzsym@hndl@key@wodefault
+\newcount\sctkzsym@snowman@mouthshape@c
 %
 % definition of \scsnowman[...]
 \DeclareRobustCommand\scsnowman[1][]{%
@@ -122,6 +127,7 @@
   \sctkzsym@hndl@key@withbool{snowman}{eyes}%
   \def\sctkzsym@snowman@eyepath{\path[fill=\sctkzsym@snowman@eyefill]}%
   % check mouth (currently mouth=<color> not supported; falling back to default-(anti)color)
+  \sctkzsym@hndl@key@wodefault{snowman}{mouthshape}{smile}{frown}{tight}%
   \sctkzsym@hndl@key@withbool{snowman}{mouth}%
   \def\sctkzsym@snowman@mouthpath{\path[draw=\sctkzsym@snowman@mouthstroke]}%
   % check hat
@@ -162,7 +168,7 @@
   \renewcommand{\sctkzsym@snowman@defaultkeys}{%
     % key initialization
     \sctkzsym@snowman@initkeys
-    % handling <key>=<value> (init=true is silently ignored)
+    % read <key>=<value> (init=true is silently ignored)
     \setkeys{sctkzsym@snowman}{#1,init=false}%
   }%
   \sctkzsym@snowman@defaultkeys
