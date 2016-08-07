@@ -8,7 +8,7 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesFile{scsnowman-oblate.def}[2016/08/08 v0.7 scsnowman definition (oblate)]
+\ProvidesFile{scsnowman-oblate.def}[2016/08/08 v0.8 scsnowman definition (oblate)]
 \def\sctkzsym@snowman@oblate{%
   \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale]
     \useasboundingbox(0,0) rectangle (1,1);
@@ -36,6 +36,9 @@
     \else
       \sctkzsym@snowman@mouthpath (0.40,0.48) .. controls (0.45,0.45) and (0.55,0.45) .. (0.60,0.48);
     \fi\fi
+    \fi
+    \ifsctkzsym@snowman@sweat
+      \sctkzsym@snowman@sweatpath (0.70,0.56) .. controls (0.64,0.46) and (0.75,0.46) .. (0.70,0.56) -- cycle;
     \fi
     \ifsctkzsym@snowman@hat
       \sctkzsym@snowman@hatpath % hat

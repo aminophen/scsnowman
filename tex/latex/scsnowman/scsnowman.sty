@@ -8,10 +8,66 @@
 %%   Twitter :  @aminophen
 %% 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2016/08/08 v0.7 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2016/08/08 v0.8 Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2016/08/08]
+%
+% make document snowman (joke)
+\ifsctkzsym@document
+\def\makedocumentsnowman{%
+  \ifx\documentclass\@notprerr
+    % Already after \begin{document}, throw an error
+    \def\sctkzsym@documentsnowman{%
+      \PackageError{scsnowman}{%
+        Use of \noexpand\makedocumentsnowman too late!\MessageBreak
+        Try using before \string\begin{document}}{%
+        I'll try to stop processing, but
+        this attempt can fail.\MessageBreak\@ehc}%
+      % If the above error is ignored, there's no way to
+      % exit successfully in all cases. So, try to continue
+      % processing by ignoring all LaTeX errors.
+      % TeX errors still remain; therefore, \makedocumentsnowman
+      % in internal vertical mode or math mode will fail.
+      \let\@latex@error\@gobbletwo\par
+      \scsnowman[init,scale=14,hat,muffler,buttons,snow]%
+      \scsnowman[init,scale=14,hat,muffler,buttons,arms]%
+      \scsnowman[init,scale=14,body,hat,muffler,buttons,snow]%
+      \end{document}}%
+  \else\ifx\documentclass\@twoclasseserror
+    \ifx\AtBeginDocument\@firstofone
+      % In preamble, inside \AtBeginDocument; avoid infinite loop
+      \def\sctkzsym@documentsnowman{%
+        \centering
+        \scsnowman[init,scale=14,hat,muffler,buttons,snow]%
+        \scsnowman[init,scale=14,hat,muffler,buttons,arms]%
+        \scsnowman[init,scale=14,body,hat,muffler,buttons,snow]%
+        \end{document}}%
+    \else
+      % In preamble; start document
+      \def\sctkzsym@documentsnowman{%
+        \pagestyle{empty}%
+        \begin{document}%
+        \centering
+        \scsnowman[init,scale=14,hat,muffler,buttons,snow]%
+        \scsnowman[init,scale=14,hat,muffler,buttons,arms]%
+        \scsnowman[init,scale=14,body,hat,muffler,buttons,snow]%
+        \end{document}}%
+    \fi
+  \else
+    % Before \documentclass{...}; load class and start document
+    \def\sctkzsym@documentsnowman{%
+      \documentclass{minimal}%
+      \begin{document}%
+      \centering
+      \scsnowman[init,scale=18,hat,muffler,buttons,snow]%
+      \scsnowman[init,scale=18,hat,muffler,buttons,arms]%
+      \scsnowman[init,scale=18,body,hat,muffler,buttons,snow]%
+      \end{document}}%
+  \fi\fi
+  \sctkzsym@documentsnowman
+}
+\fi
 %
 % change QED symbol (joke)
 \ifsctkzsym@qed
@@ -22,7 +78,6 @@
       \let\qedsymbol\sctkzsym@snowman@qedsymbol
     \fi
   }
-  \makeqedsnowman % default to snowman
 \fi
 %
 % change item label (joke)
@@ -43,7 +98,6 @@
       \let\labelitemiv\sctkzsym@snowman@labelitemiv
     \fi
   }
-  \makeitemsnowman % default to snowman
 \fi
 %
 % key initialization
@@ -54,6 +108,7 @@
   \def\sctkzsym@snowman@eyes{true}%  default on
   \def\sctkzsym@snowman@mouthshape{smile}%
   \def\sctkzsym@snowman@mouth{true}% default on
+  \def\sctkzsym@snowman@sweat{false}%
   \def\sctkzsym@snowman@hat{false}%
   \def\sctkzsym@snowman@arms{false}%
   \def\sctkzsym@snowman@muffler{false}%
@@ -72,6 +127,7 @@
 \sctkzsym@define@key@withbool{snowman}{eyes}
 \sctkzsym@define@key@wodefault{snowman}{mouthshape}
 \sctkzsym@define@key@withbool{snowman}{mouth}
+\sctkzsym@define@key@withbool{snowman}{sweat}
 \sctkzsym@define@key@withbool{snowman}{hat}
 \sctkzsym@define@key@withbool{snowman}{arms}
 \sctkzsym@define@key@withbool{snowman}{muffler}
@@ -105,6 +161,8 @@
     \def\sctkzsym@snowman@snowpath{\path[draw=\sctkzsym@snowman@snowstroke,fill=\sctkzsym@snowman@snowfill]}%
     \def\sctkzsym@snowman@eyefill{\sctkzsym@defaultanticolor}%
     \def\sctkzsym@snowman@mouthstroke{\sctkzsym@defaultanticolor}%
+    \def\sctkzsym@snowman@sweatstroke{\sctkzsym@defaultanticolor}%
+    \def\sctkzsym@snowman@sweatfill{\sctkzsym@snowman@sweat}%
     \def\sctkzsym@snowman@mufflerstroke{\sctkzsym@defaultanticolor}%
     \def\sctkzsym@snowman@mufflerfill{\sctkzsym@snowman@muffler}%
     \def\sctkzsym@snowman@buttonstroke{\sctkzsym@defaultanticolor}%
@@ -118,6 +176,8 @@
     \def\sctkzsym@snowman@snowpath{\path[draw=\sctkzsym@snowman@snowstroke]}%
     \def\sctkzsym@snowman@eyefill{\sctkzsym@defaultcolor}%
     \def\sctkzsym@snowman@mouthstroke{\sctkzsym@defaultcolor}%
+    \def\sctkzsym@snowman@sweatstroke{\sctkzsym@snowman@sweat}%
+    \def\sctkzsym@snowman@sweatfill{\sctkzsym@defaultanticolor}%
     \def\sctkzsym@snowman@mufflerstroke{\sctkzsym@snowman@muffler}%
     \def\sctkzsym@snowman@mufflerfill{\sctkzsym@snowman@muffler}%
     \def\sctkzsym@snowman@buttonstroke{\sctkzsym@snowman@buttons}%
@@ -130,6 +190,9 @@
   \sctkzsym@hndl@key@wodefault{snowman}{mouthshape}{smile}{frown}{tight}%
   \sctkzsym@hndl@key@withbool{snowman}{mouth}%
   \def\sctkzsym@snowman@mouthpath{\path[draw=\sctkzsym@snowman@mouthstroke]}%
+  % check sweat
+  \sctkzsym@hndl@key@withbool{snowman}{sweat}%
+  \def\sctkzsym@snowman@sweatpath{\path[draw=\sctkzsym@snowman@sweatstroke,fill=\sctkzsym@snowman@sweatfill]}%
   % check hat
   \sctkzsym@hndl@key@withbool{snowman}{hat}%
   \def\sctkzsym@snowman@hatstroke{\sctkzsym@snowman@hat}%

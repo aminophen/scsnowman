@@ -26,12 +26,13 @@ See license.txt.
 
  - 2015-12-13 Version 0.1  (First commit)
  - 2015-12-19 Version 0.2  (Trivial fix)
- - 2016-08-06 Version 0.3  (Add "qed" package option)
- - 2016-08-06 Version 0.4  (Add "item" package option)
- - 2016-08-07 Version 0.5  (Add new command `scsnowmandefault`)
+ - 2016-08-06 Version 0.3  (Add new command `\makeqedsnowman`)
+ - 2016-08-06 Version 0.4  (Add new command `\makeitemsnowman`)
+ - 2016-08-07 Version 0.5  (Add new command `\scsnowmandefault`)
  - 2016-08-07 Version 0.5a (Add "init" option; fix default for qed/item)
  - 2016-08-08 Version 0.6  (Add new variant "buttons")
  - 2016-08-08 Version 0.7  (Add new variant "mouthshape")
+ - 2016-08-08 Version 0.8  (Add new variant "sweat", new command `\makedocumentsnowman`)
 
 --------------------
 Hironobu YAMASHITA (aka. "Acetaminophen" or "@aminophen")
