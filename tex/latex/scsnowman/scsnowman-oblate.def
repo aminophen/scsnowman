@@ -1,0 +1,104 @@
+%%
+%% This is file `scsnowman-oblate.def', part of scsnowman package.
+%% 
+%% Copyright 2015-2016 Acetaminophen (Hironobu YAMASHITA)
+%%   Email   :  h.y.acetaminophen[a t]gmail.com
+%%   GitHub  :  https://github.com/aminophen
+%%   Blog    :  http://acetaminophen.hatenablog.com/
+%%   Twitter :  @aminophen
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{scsnowman-oblate.def}[2016/08/08 v0.6]
+\def\sctkzsym@snowman@oblate{%
+  \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale]
+    \useasboundingbox(0,0) rectangle (1,1);
+      \sctkzsym@snowman@bodypath % body (IPA-like)
+        (0.5,0.72) .. controls (0.64,0.72) and (0.76,0.65) ..
+        (0.76,0.55) .. controls (0.76,0.51) and (0.72,0.47) ..
+        (0.67,0.44) .. controls (0.79,0.41) and (0.84,0.32) ..
+        (0.84,0.25) .. controls (0.84,0.13) and (0.75,0.08) ..
+        (0.68,0.08) --
+        (0.32,0.08) .. controls (0.25,0.08) and (0.16,0.13) ..
+        (0.16,0.25) .. controls (0.16,0.32) and (0.21,0.41) ..
+        (0.33,0.44) .. controls (0.28,0.47) and (0.24,0.51) ..
+        (0.24,0.55) .. controls (0.24,0.65) and (0.36,0.72) ..
+        (0.5,0.72) --
+        cycle;
+    \ifsctkzsym@snowman@eyes
+      \sctkzsym@snowman@eyepath (0.40,0.56) circle (0.02 and 0.03);
+      \sctkzsym@snowman@eyepath (0.60,0.56) circle (0.02 and 0.03);
+    \fi
+    \ifsctkzsym@snowman@mouth
+      \sctkzsym@snowman@mouthpath (0.40,0.48) .. controls (0.45,0.45) and (0.55,0.45) .. (0.60,0.48);
+    \fi
+    \ifsctkzsym@snowman@hat
+      \sctkzsym@snowman@hatpath % hat
+        (0.58,0.90) --
+        (0.77,0.81) --
+        (0.74,0.61) .. controls (0.66,0.60) and (0.50,0.66) ..
+        (0.46,0.72) --
+        (0.58,0.90) --
+        cycle;
+    \fi
+    \ifsctkzsym@snowman@arms
+      \sctkzsym@snowman@armspath % right arm (SourceHanSans-like)
+        (0.20,0.31) .. controls (0.19,0.33) and (0.14,0.41) ..
+        (0.13,0.42) .. controls (0.12,0.43) and (0.10,0.43) ..
+        (0.07,0.44) .. controls (0.04,0.46) and (0.06,0.46) ..
+        (0.08,0.46) .. controls (0.09,0.46) and (0.11,0.44) ..
+        (0.12,0.44) .. controls (0.14,0.46) and (0.14,0.47) ..
+        (0.15,0.49) .. controls (0.16,0.51) and (0.16,0.49) ..
+        (0.16,0.48) .. controls (0.16,0.46) and (0.14,0.44) ..
+        (0.15,0.43) .. controls (0.16,0.42) and (0.21,0.35) ..
+        (0.22,0.33) .. controls (0.23,0.31) and (0.21,0.30) ..
+        (0.20,0.31) --
+        cycle;
+      \sctkzsym@snowman@armspath % left arm (SourceHanSans-like)
+        (0.80,0.31) .. controls (0.81,0.33) and (0.86,0.41) ..
+        (0.87,0.42) .. controls (0.88,0.43) and (0.90,0.43) ..
+        (0.93,0.44) .. controls (0.96,0.46) and (0.94,0.46) ..
+        (0.92,0.46) .. controls (0.91,0.46) and (0.89,0.44) ..
+        (0.88,0.44) .. controls (0.86,0.46) and (0.86,0.47) ..
+        (0.85,0.49) .. controls (0.84,0.51) and (0.84,0.49) ..
+        (0.84,0.48) .. controls (0.84,0.46) and (0.86,0.44) ..
+        (0.85,0.43) .. controls (0.84,0.42) and (0.79,0.35) ..
+        (0.78,0.33) .. controls (0.77,0.31) and (0.79,0.30) ..
+        (0.80,0.31) --
+        cycle;
+    \fi
+    \ifsctkzsym@snowman@muffler
+      \sctkzsym@snowman@mufflerpath % muffler (SourceHanSans-like)
+        (0.27,0.48) .. controls (0.42,0.38) and (0.58,0.38) ..
+        (0.73,0.48) .. controls (0.75,0.46) and (0.76,0.44) ..
+        (0.77,0.41) .. controls (0.77,0.39) and (0.75,0.37) ..
+        (0.73,0.36) .. controls (0.74,0.33) and (0.74,0.31) ..
+        (0.76,0.26) .. controls (0.75,0.25) and (0.72,0.24) ..
+        (0.66,0.23) .. controls (0.66,0.27) and (0.65,0.30) ..
+        (0.63,0.34) .. controls (0.42,0.30) and (0.32,0.35) ..
+        (0.24,0.41) .. controls (0.25,0.45) and (0.26,0.47) ..
+        (0.27,0.48) --
+        cycle;
+    \fi
+    \ifsctkzsym@snowman@buttons\ifsctkzsym@snowman@muffler
+      \sctkzsym@snowman@buttonpath (0.50,0.16) circle (0.03);
+      \sctkzsym@snowman@buttonpath (0.50,0.26) circle (0.03);
+    \else
+      \sctkzsym@snowman@buttonpath (0.50,0.17) circle (0.03);
+      \sctkzsym@snowman@buttonpath (0.50,0.29) circle (0.03);
+    \fi\fi
+    \ifsctkzsym@snowman@snow
+      \sctkzsym@snowman@snowpath (0.07,0.28) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.08,0.68) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.13,0.55) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.23,0.76) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.42,0.89) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.74,0.89) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.88,0.73) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.92,0.53) circle (0.04);
+      \sctkzsym@snowman@snowpath (0.94,0.23) circle (0.04);
+    \fi
+  \end{tikzpicture}%
+}
+\endinput
+%%
+%% End of file `scsnowman-oblate.def'.
