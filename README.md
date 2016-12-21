@@ -1,10 +1,13 @@
-scsnowman.sty
-==============
+# scsnowman
 
-This LaTeX package provides a command `\scsnowman`, which can display many variants of snowman ("yukidaruma" in Japanese).
-This package depends on TikZ for drawing snowman glyphs.
+This LaTeX package provides a command `\scsnowman`, which can display many
+variants of snowman ("yukidaruma" in Japanese).
+This package utilizes TikZ for drawing snowman.
 
-### Samples
+The package is maintained on GitHub:
+https://github.com/aminophen/scsnowman
+
+## Samples
 
 ![sample-01](http://img.f.hatena.ne.jp/images/fotolife/a/acetaminophen/20151213/20151213003442.png)
 
@@ -12,17 +15,27 @@ This package depends on TikZ for drawing snowman glyphs.
 
 ![sample-03](http://img.f.hatena.ne.jp/images/fotolife/a/acetaminophen/20151213/20151213011831.png)
 
-### References
+## Requirements
 
-The comprehensive documentation is not currently available.
-See http://acetaminophen.hatenablog.com for a short explanation. (in Japanese)
+This package requires "tikz" package.
 
-### License
+## Installation
+
+Deploy the files in an appropriate place under the TEXMF tree.
+
+        * scsnowman.sty, sctkzsym-base.sty, scsnowman-oblate.def
+               => $TEXMF/tex/latex/scsnowman
+        * scsnowman-sample.tex, scsnowman-sample.pdf
+               => $TEXMF/doc/latex/scsnowman
+
+Then, execute mktexlsr.
+
+## License
 
 This package is distributed under the BSD 2-Clause License.
 See license.txt.
 
-### Version History
+## Version History
 
  - 2015-12-13 Version 0.1  (First commit)
  - 2015-12-19 Version 0.2  (Trivial fix)
