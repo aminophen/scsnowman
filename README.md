@@ -33,7 +33,7 @@ Then, execute mktexlsr.
 ## License
 
 This package is distributed under the BSD 2-Clause License.
-See license.txt.
+See [LICENSE](./LICENSE).
 
 ## Version History
 
