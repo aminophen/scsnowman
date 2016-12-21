@@ -1,12 +1,14 @@
 %%
 %% This is file `scsnowman-oblate.def', part of scsnowman package.
-%% 
-%% Copyright 2015-2016 Acetaminophen (Hironobu YAMASHITA)
+%% Maintained on GitHub:
+%% https://github.com/aminophen/scsnowman
+%%
+%% Copyright (c) 2015-2016 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
 %%   Twitter :  @aminophen
-%% 
+%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{scsnowman-oblate.def}[2016/08/08 v0.8 scsnowman definition (oblate)]
 \def\sctkzsym@snowman@oblate{%

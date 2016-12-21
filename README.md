@@ -48,5 +48,5 @@ See [LICENSE](./LICENSE).
  - 2016-08-08 Version 0.8  (Add new variant "sweat", new command `\makedocumentsnowman`)
 
 --------------------
-Hironobu YAMASHITA (aka. "Acetaminophen" or "@aminophen")
+Copyright (c) 2015-2016 Hironobu Yamashita
 http://acetaminophen.hatenablog.com/

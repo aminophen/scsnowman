@@ -16,6 +16,7 @@ rm $TMP/$PROJECT/.gitignore
 rm $TMP/$PROJECT/create_archive.sh
 #perl -pi.bak -e "s/\\\$RELEASEDATE/$RELEASEDATE/g" $TMP/$PROJECT/README.md
 perl -pi.bak -0777 -e "s/## Samples.*## Requirements/## Requirements/gs" $TMP/$PROJECT/README.md
+perl -pi.bak -0777 -e "s/## Version History.*Copyright/Copyright/gs" $TMP/$PROJECT/README.md
 rm -f $TMP/$PROJECT/README.md.bak
 
 cd $TMP && zip -r $PWDF/$PROJECT.zip $PROJECT
