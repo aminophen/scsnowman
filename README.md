@@ -25,7 +25,7 @@ Deploy the files in an appropriate place under the TEXMF tree.
 
         * scsnowman.sty, sctkzsym-base.sty, scsnowman-oblate.def
                => $TEXMF/tex/latex/scsnowman
-        * scsnowman-sample.tex, scsnowman-sample.pdf
+        * scsnowman.{tex,pdf}, scsnowman-sample.{tex,pdf}
                => $TEXMF/doc/latex/scsnowman
 
 Then, execute mktexlsr.
