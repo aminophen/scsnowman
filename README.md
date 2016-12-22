@@ -23,7 +23,7 @@ This package requires "tikz" package.
 
 Deploy the files in an appropriate place under the TEXMF tree.
 
-        * scsnowman.sty, sctkzsym-base.sty, scsnowman-oblate.def
+        * scsnowman.sty, sctkzsym-base.sty, scsnowman-normal.def
                => $TEXMF/tex/latex/scsnowman
         * scsnowman.{tex,pdf}, scsnowman-sample.{tex,pdf}
                => $TEXMF/doc/latex/scsnowman
@@ -46,6 +46,7 @@ See [LICENSE](./LICENSE).
  - 2016-08-08 Version 0.6  (Add new variant "buttons")
  - 2016-08-08 Version 0.7  (Add new variant "mouthshape")
  - 2016-08-08 Version 0.8  (Add new variant "sweat", new command `\makedocumentsnowman`)
+ - 2016-12-22 Version 1.0  (First CTAN release)
 
 --------------------
 Copyright (c) 2015-2016 Hironobu Yamashita
