@@ -1,0 +1,236 @@
+% This package is distributed under the BSD 2-Clause License.
+
+\documentclass[a4paper]{article}
+\usepackage{doc}
+\usepackage[svgnames]{xcolor}
+\usepackage{scsnowman}
+\GetFileInfo{scsnowman.sty}
+\usepackage{array}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\def\BigSnowman#1{\fontsize{60pt}{60pt}\selectfont\symbol{"#1}}
+\newjfontfamily\fipam{IPAexMincho}
+\newjfontfamily\fhrgnm{HiraMinProN-W3}
+\newjfontfamily\fkozm{KozMinPr6N-Regular}
+\newjfontfamily\fmsmin{MS-Mincho}
+\newjfontfamily\fvlgo{VLGothic}
+\usepackage{hyperref}
+% misc
+\def\Lpack#1{\textsf{#1}}
+\def\Lopt#1{\texttt{#1}}
+% scsnowman in title
+\def\scsnowmanleft{%
+  \raisebox{-1ex}{\scsnowman[scale=2,hat=Green,arms=Brown,snow=SkyBlue,buttons=RoyalBlue,muffler=Red]}}
+\def\scsnowmanright{%
+  \raisebox{-1ex}{\scsnowman[scale=2,hat=Green,arms=Brown,snow=SkyBlue,buttons=RoyalBlue]}}
+\title{\scsnowmanleft\ The \Lpack{scsnowman} package \fileversion\ \scsnowmanright}
+\author{Hironobu Yamashita}
+\date{\filedate}
+\begin{document}
+
+\maketitle
+
+The \LaTeX\ package \Lpack{scsnowman} provides a command \verb+\scsnowman+, which can display
+many variants of snowman. This package utilizes Ti\emph{k}Z for drawing snowman.
+\begin{figure}[htb]\centering
+\scsnowman[scale=3,hat,snow,arms]\scsnowman[scale=3,hat=RoyalBlue,muffler=Green]
+\scsnowman\scsnowman[scale=3]\scsnowman[scale=5]\par
+\scsnowmandefault{scale=5,hat,muffler=Red}
+\scsnowman[mouthshape=smile]
+\scsnowman[mouthshape=frown]
+\scsnowman[mouthshape=tight]
+\scsnowman[mouthshape=tight,arms,buttons,sweat]\\[2ex]
+\scsnowmandefault{scale=5}
+\begin{tabular}{ccc}
+  \texttt{U+2603} & \texttt{U+26C4} & \texttt{U+26C7} \\
+  \texttt{SNOWMAN} & \texttt{SNOWMAN WITHOUT SNOW} & \texttt{BLACK SNOWMAN} \\
+  \scsnowman[body=false,snow=true] & \scsnowman[body=false,snow=false] & \scsnowman[body=true,snow=true]
+\end{tabular}
+\end{figure}
+
+The package is maintained on GitHub:
+\begin{itemize}
+\item \url{https://github.com/aminophen/scsnowman}
+\end{itemize}
+
+\tableofcontents\clearpage
+
+\section{The History of Snowman in Unicode}
+
+In October 1991, the first volume of the Unicode standard was published. Since then,
+there was a code point assigned to a character ``snowman''; \verb:U+2603:.
+\begin{quote}
+  \verb:U+2603 SNOWMAN:\\
+    = snowy weather
+\end{quote}
+It seems that the shape of its reference glyph in Unicode 1.0.0 was taken from ``Ryumin'',
+which was developed by Morisawa (a famous font vendor in Japan).
+\begin{figure}
+%\includegraphics[width=0.3\textwidth]{}
+\end{figure}
+A few years later, the reference glyph has sometimes been changed to another; however,
+there had been only one ``snowman'' in Unicode until 2009.
+\begin{figure}
+%\includegraphics[width=0.3\textwidth]{}
+\end{figure}
+
+In October 2009, Unicode 5.2 was published. In this volume, two ``snowman'' code points
+were added; \verb:U+26C4: and \verb:U+26C7:.
+\begin{quote}
+  \verb:U+26C4 SNOWMAN WITHOUT SNOW:\\
+    = light snow\\
+  \verb:U+26C7 BLACK SNOWMAN:\\
+    = heavy snow
+\end{quote}
+According to the code chart, the origin of these two characters is ARIB STD-B24
+(Data Coding and Transmission Specification for Digital Broadcasting;\footnote{%
+\url{http://www.arib.or.jp/tyosakenkyu/kikaku_hoso/hoso_std-b024.html}; Abstract in PDF format
+(both \href{http://www.arib.or.jp/tyosakenkyu/kikaku_sample/sample-std-b24-1-6.3.pdf}{Japanese}
+and \href{http://www.arib.or.jp/english/html/overview/doc/6-STD-B24v5_2-1p3-E1.pdf}) are
+available.}), which was established by Association of Radio Industries and Business in
+Japan. Since then, it can be said that the old code point \verb:U+2603: has been given
+an implicit meaning of ``\verb:SNOWMAN WITH SNOW:''. The reference glyphs were also changed
+at that time.
+\begin{figure}
+%\includegraphics[width=0.3\textwidth]{}
+\end{figure}
+
+\section{Variation of Snowman among Actual Fonts}
+
+Since the shapes of the reference glyphs used in the Unicode code charts are not
+prescriptive, the actual fonts have a wide variety of glyph designs. However, when it
+comes to snowman, the variation between fonts is enormous. This variation is very
+interesting, however, on the other hand, problematic.
+
+Table \ref{table:actualfonts} shows the variety of ``snowman'' in actual fonts.
+\begin{table}[tbp]
+\caption{The variety of ``snowman'' in actual fonts}\label{table:actualfonts}
+\setlength{\extrarowheight}{50pt}%
+\centering
+\begin{tabular}{cccc}
+\hline
+ & \raisebox{2ex}{\Large\texttt{U+2603}} & \raisebox{2ex}{\Large\texttt{U+26C4}} & \raisebox{2ex}{\Large\texttt{U+26C7}} \\ \hline
+\raisebox{4ex}{\fipam IPAex明朝} & {\fipam \BigSnowman{2603}} &  &  \\
+\raisebox{4ex}{\fmsmin ＭＳ 明朝} & {\fmsmin \BigSnowman{2603}} &  &  \\
+\raisebox{4ex}{\fkozm 小塚明朝 Pr6N Regular} & {\fkozm \BigSnowman{2603}} &  &  \\
+\raisebox{4ex}{\fhrgnm ヒラギノ明朝 ProN W3} & {\fhrgnm \BigSnowman{2603}} &  &  \\
+\raisebox{4ex}{\fvlgo VLゴシック} & {\fvlgo \BigSnowman{2603}} & {\fvlgo \BigSnowman{26C4}} & {\fvlgo \BigSnowman{26C7}} \\
+\hline
+\end{tabular}
+\end{table}
+The snowman in ``IPA Mincho (IPA明朝)'' from Information-technology Promotion Agency is very similar
+to the one in ``Ryumin (リュウミン)'' from Morisawa. However, in ``MS Mincho (ＭＳ 明朝)'' from Microsoft,
+the snowman wears a black hat instead of white one. In ``Kozuka Mincho (小塚明朝)'' from Adobe Systems Inc.,
+he/she wears a muffler instead of a hat. Moreover, it doesn't snow in ``Hiragino Mincho (ヒラギノ明朝)'' from
+SCREEN Graphic and Precision Solutions Co., Ltd. It is natural that some fonts developed before 2009 have
+a ``snowman without snow'' glyph in the code point \verb:U+2603:, however, it can be a problem when we
+have to transfer the exact information to others.
+
+\section{Introduction to \Lpack{scsnowman} Package}
+
+The \LaTeX\ package \Lpack{scsnowman} provides a command  \verb+\scsnowman+, which can
+display many variants of snowman. This package depends on Ti\emph{k}Z package for drawing
+snowman images.
+
+To use this package, load it in preamble:
+\begin{quote}\begin{verbatim}
+\usepackage{scsnowman}
+\end{verbatim}\end{quote}
+In the main document, use \verb+\scsnowman+ command to print snowman: \scsnowman.
+By default, the snowman is ``plain'' style, without any decoration such as snow, a hat or
+a muffler.
+
+\section{Command Options}
+
+You can customize the style of snowman using the optional argument. The syntax is
+\begin{quote}
+\verb+\scsnowman[+\emph{$\langle$key-value list$\rangle$}\verb+]+
+\end{quote}
+Following \emph{key}s take a \emph{value} which specifies color. When the \emph{value} is omitted,
+the default color, black or white, will be used:
+\begin{quote}
+  \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{sweat},
+  \Lopt{hat}, \Lopt{arms}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}
+\end{quote}
+Other \emph{key}s require one specific \emph{value}:
+\begin{quote}
+  \Lopt{mouthshape}, \Lopt{scale}
+\end{quote}
+The key \Lopt{mouthshape} takes one of the followings: \Lopt{smile}, \Lopt{tight} or \Lopt{frown}.
+The key \Lopt{scale} takes a scale factor.
+
+Here is some examples:\\[1ex]
+\begin{minipage}{.7\textwidth}\begin{verbatim}
+  \scsnowman[scale=2,body,hat=red,muffler=blue]
+  \scsnowman[scale=3,hat,snow,arms,buttons]
+  \scsnowman[scale=3,mouthshape=tight,muffler=red]
+  \scsnowman[scale=3,mouthshape=frown,hat=green]
+\end{verbatim}\end{minipage}
+\begin{minipage}{.25\textwidth}
+  \scsnowman[scale=2,body,hat=red,muffler=blue]
+  \scsnowman[scale=3,hat,snow,arms,buttons]
+  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,mouthshape=frown,hat=green]
+\end{minipage}
+
+\section{Changing the Default}
+
+The package default is the ``plain'' style snowman. This default can be changed by using
+\verb+\scsnowmandefault+ command. The syntax is
+\begin{quote}
+\verb+\scsnowmandefault{+\emph{$\langle$key-value list$\rangle$}\verb+}+
+\end{quote}
+The available \emph{key}s are the same as those in \verb+\scsnowman+.
+
+Here is some examples:\\[1ex]
+\begin{minipage}{.65\textwidth}\begin{verbatim}
+  \scsnowmandefault{scale=3,hat=red}
+  \scsnowman
+  \scsnowman[body,hat=red,muffler=blue]
+  \scsnowman[hat=green,snow]
+\end{verbatim}\end{minipage}
+\begin{minipage}{.3\textwidth}
+  \scsnowmandefault{scale=5,hat=red}
+  \scsnowman
+  \scsnowman[body,hat=red,muffler=blue]
+  \scsnowman[hat=green,snow]
+\end{minipage}
+
+\section*{Version History}
+
+This is the summary of changes. For more detail, see GitHub repository.
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+Version 0.1 & 2015-12-13 & First public version on GitHub \\
+Version 0.8 & 2016-08-08 & Second public version on GitHub: \\
+            &            & new variants \Lopt{buttons}, \Lopt{mouthshape}, \Lopt{sweat} are added \\
+Version 1.0 & 2016-12-23 & First CTAN release
+\end{tabular}
+\end{table}
+
+\begin{thebibliography}{9}
+\bibitem{NAOI1}
+\href{http://d.hatena.ne.jp/NAOI/20080623/1214211959}{雪だるまの親子関係}
+ -- Mac OS Xの文字コード問題に関するメモ
+\bibitem{NAOI2}
+\href{http://d.hatena.ne.jp/NAOI/20110707/1310031226}{ヒラギノの雪だるまは、なぜ寂しそうなのか}
+ -- Mac OS Xの文字コード問題に関するメモ
+\bibitem{DORA1}
+\href{http://doratex.hatenablog.jp/entry/20140327/1395878814}{いろいろなゆきだるま}
+ -- TeX Alchemist Online
+\bibitem{ACE1}
+\href{http://acetaminophen.hatenablog.com/entry/2014/09/05/090313}{「\TeX{}でゆきだるま」をもっとたくさん}
+ -- Acetaminophen's diary
+\bibitem{ZR1}
+\href{http://d.hatena.ne.jp/zrbabbler/20140911/1410439004}{Unicode の例の雪だるまは多分アレ}
+ -- マクロツイーター
+\bibitem{ACE2}
+\href{http://acetaminophen.hatenablog.com/entry/2015/12/13/080226}{\TeX{}でゆきだるまを“もっともっと”たくさん}
+ -- Acetaminophen's diary
+\bibitem{ACE3}
+\href{http://acetaminophen.hatenablog.com/entry/2016/08/08/080800}{夏といえば、やっぱり「ゆきだるま」！}
+ -- Acetaminophen's diary
+\end{thebibliography}
+
+\end{document}
