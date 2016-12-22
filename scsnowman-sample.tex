@@ -10,8 +10,9 @@
 %%   Twitter :  @aminophen
 %%
 % platex + dvipdfmx
-\documentclass[dvipdfmx]{jsarticle}
-\usepackage[margin=27truemm]{geometry}
+\documentclass[dvipdfmx,twocolumn]{jsarticle}
+\usepackage[margin=21truemm]{geometry}
+\usepackage[svgnames]{xcolor}
 \usepackage{scsnowman}
 \title{\textsf{scsnowman}パッケージの実用例}
 \author{アセトアミノフェン}
@@ -73,5 +74,58 @@
     \scsnowman[scale=5,body=red,snow=red,hat=red] & \scsnowman[scale=5,body=blue,hat=blue,arms=blue,muffler=blue] & \scsnowman[scale=5,body=green,snow=green,arms=green]
   \end{tabular}
 \end{table}
+
+\newpage
+
+\scsnowmandefault{body,hat,snow,muffler}%
+私、黒\scsnowman 大輔は、1950年に黒\scsnowman 太郎の長男として
+誕生しました。その後、黒\scsnowman 家には…
+
+\scsnowmandefault{hat,snow,arms}%
+お隣には白\scsnowman さんが住んでいました。白\scsnowman さんは、
+宛名の文字を「\scsnowman」でなく「\scsnowman[arms=false,muffler]」
+と書いてしまうとお手紙を読まずに食べてしまうような変わった方でした。
+ただし、\scsnowman[hat=red]のように帽子に色が付いた宛名を見ると、
+白\scsnowman さんは喜んでいました。
+
+% buttons で「ボタン」（マフラーの有無で微妙に位置が変わる）
+\scsnowmandefault{scale=5,hat=Green,arms=Brown,snow=SkyBlue}
+\scsnowman[buttons=RoyalBlue,muffler=Red]
+\scsnowman[buttons=RoyalBlue]
+
+% mouthshape で「口の形」
+\scsnowmandefault{scale=5,hat,muffler=Red}
+\scsnowman[mouthshape=smile]% にっこり
+\scsnowman[mouthshape=frown]% しかめっ面
+\scsnowman[mouthshape=tight]% 真一文字
+
+% sweat で「汗」
+\scsnowmandefault{scale=5,hat}
+\scsnowman[mouthshape=tight,arms,buttons,sweat]
+
+ゆきだるまで箇条書き：
+\makeitemsnowman
+\begin{itemize}
+  \item 動物
+  \begin{itemize}
+    \item 哺乳類
+    \item 鳥類
+    \item …
+  \end{itemize}
+  \item 植物
+  \begin{itemize}
+    \item 裸子植物
+    \item 被子植物
+    \begin{itemize}
+      \item 単子葉類
+      \item 双子葉類
+      \begin{itemize}
+        \item 合弁花類
+        \item 離弁花類
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\makeitemother
 
 \end{document}

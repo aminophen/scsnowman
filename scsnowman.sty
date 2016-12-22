@@ -10,7 +10,7 @@
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2016/08/08 v0.8 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2016/12/22 v1.0 Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2016/08/08]
@@ -220,7 +220,7 @@
   %
   %%%%% input from def file
   %
-  \sctkzsym@snowman@oblate
+  \sctkzsym@snowman@normal
   %
   %%%%%
   %
@@ -240,7 +240,7 @@
 }
 %
 % load shape definitions
-\input{scsnowman-oblate.def}
+\input{scsnowman-normal.def}
 %
 \endinput
 %%
