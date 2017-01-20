@@ -13,7 +13,7 @@
 \ProvidesFile{scsnowman-normal.def}[2016/12/22 v1.0 scsnowman definition (normal)]
 \def\sctkzsym@snowman@normal{%
   \setlength{\sctkzsym@coord@baseline}{%
-    \ifsctkzsym@snowman@grounded
+    \ifsctkzsym@snowman@adjustbaseline
       \dimexpr0.144ex*\sctkzsym@snowman@scale\relax
     \else
       \z@

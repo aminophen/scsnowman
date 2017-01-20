@@ -116,7 +116,7 @@
   \def\sctkzsym@snowman@muffler{false}%
   \def\sctkzsym@snowman@buttons{false}%
   \def\sctkzsym@snowman@snow{false}%
-  \def\sctkzsym@snowman@grounded{false}%
+  \def\sctkzsym@snowman@adjustbaseline{false}%
 }
 \newcommand{\sctkzsym@snowman@defaultkeys}{%
   \sctkzsym@snowman@initkeys
@@ -136,7 +136,7 @@
 \sctkzsym@define@key@withbool{snowman}{muffler}
 \sctkzsym@define@key@withbool{snowman}{buttons}
 \sctkzsym@define@key@withbool{snowman}{snow}
-\sctkzsym@define@key@withbool{snowman}{grounded}
+\sctkzsym@define@key@withbool{snowman}{adjustbaseline}
 %
 % count definitions for \sctkzsym@hndl@key@wodefault
 \newcount\sctkzsym@snowman@mouthshape@c
@@ -215,8 +215,8 @@
   \def\sctkzsym@snowman@buttonpath{\path[draw=\sctkzsym@snowman@buttonstroke,fill=\sctkzsym@snowman@buttonfill]}%
   % check snow
   \sctkzsym@hndl@key@withbool{snowman}{snow}%
-  % check grounded
-  \sctkzsym@hndl@key@withbool{snowman}{grounded}%
+  % check adjustbaseline
+  \sctkzsym@hndl@key@withbool{snowman}{adjustbaseline}%
   %
   % drawing snowman
   \set@sctkzsym@coord@scl{\sctkzsym@snowman@scale}%
