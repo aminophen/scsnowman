@@ -84,7 +84,7 @@
     \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@true\relax
       \csname sctkzsym@#1@#2true\endcsname  % <key>=true
     \else
-      \PackageError{sctkzsym-base}{Only true/false allowed for key `#2'}\@ehc
+      \PackageError{sc#1}{Only true/false allowed for key `#2'}\@ehc
       \csname sctkzsym@#1@#2false\endcsname % <key>=false
     \fi
   \fi
@@ -102,7 +102,7 @@
       \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
         \csname sctkzsym@#1@#2@c\endcsname\thr@@
       \else
-        \PackageError{sctkzsym-base}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
+        \PackageError{sc#1}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
         \csname sctkzsym@#1@#2@c\endcsname\z@
       \fi
     \fi
