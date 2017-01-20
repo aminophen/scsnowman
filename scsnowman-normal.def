@@ -12,7 +12,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{scsnowman-normal.def}[2016/12/22 v1.0 scsnowman definition (normal)]
 \def\sctkzsym@snowman@normal{%
-  \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale]
+  \setlength{\sctkzsym@coord@baseline}{%
+    \ifsctkzsym@snowman@grounded
+      \dimexpr0.144ex*\sctkzsym@snowman@scale\relax
+    \else
+      \z@
+    \fi}%
+  \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale,baseline=\sctkzsym@coord@baseline]
     \useasboundingbox(0,0) rectangle (1,1);
       \sctkzsym@snowman@bodypath % body (IPA-like)
         (0.5,0.72) .. controls (0.64,0.72) and (0.76,0.65) ..
