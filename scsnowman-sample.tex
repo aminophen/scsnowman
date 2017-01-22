@@ -3,7 +3,7 @@
 %% Maintained on GitHub:
 %% https://github.com/aminophen/scsnowman
 %%
-%% Copyright (c) 2015-2016 Hironobu Yamashita
+%% Copyright (c) 2015-2017 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
@@ -127,5 +127,18 @@
   \end{itemize}
 \end{itemize}
 \makeitemother
+
+ベースラインの調節なし：
+Text,
+\scsnowman[scale=1]%
+\scsnowman[scale=4]%
+\scsnowman[scale=7],
+T.\par
+ベースラインの調節あり：
+Text,
+\scsnowman[adjustbaseline,scale=1]%
+\scsnowman[adjustbaseline,scale=4]%
+\scsnowman[adjustbaseline,scale=7],
+T.
 
 \end{document}

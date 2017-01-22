@@ -1,10 +1,10 @@
 %%
 %% This is the documentation of scsnowman package.
-%% (Last Update: 2016/12/22)
+%% (Last Update: 2017/01/22)
 %% Maintained on GitHub:
 %% https://github.com/aminophen/scsnowman
 %%
-%% Copyright (c) 2015-2016 Hironobu Yamashita
+%% Copyright (c) 2015-2017 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
@@ -25,24 +25,27 @@
 \newjfontfamily\fmsmin{MS-Mincho}
 \newjfontfamily\fvlgo{VLGothic}
 \usepackage{hyperref}
+% documentation
+\newtheorem{theorem}{Theorem}
 % misc
 \def\Lpack#1{\textsf{#1}}
 \def\Lopt#1{\texttt{#1}}
 % scsnowman in title
-\def\scsnowmanleft{%
-  \raisebox{-1ex}{\scsnowman[scale=2,hat=Green,arms=Brown,snow=SkyBlue,buttons=RoyalBlue,muffler=Red]}}
-\def\scsnowmanright{%
-  \raisebox{-1ex}{\scsnowman[scale=2,hat=Green,arms=Brown,snow=SkyBlue,buttons=RoyalBlue]}}
+\scsnowmandefault{adjustbaseline,scale=2,hat=Green,buttons=RoyalBlue}
+\def\scsnowmanleft{\scsnowman[arms=Brown,muffler=Red]}
+\def\scsnowmanright{\scsnowman[snow=SkyBlue]}
 \title{\scsnowmanleft\ The \Lpack{scsnowman} package \fileversion\ \scsnowmanright}
 \author{Hironobu Yamashita}
 \date{\filedate}
 \begin{document}
 
 \maketitle
+\scsnowmandefault{}
 
 The \LaTeX\ package \Lpack{scsnowman} provides a command \verb+\scsnowman+, which can display
-many variants of snowman. This package utilizes Ti\emph{k}Z for drawing snowman.
+many variants of snowmen. This package utilizes Ti\emph{k}Z for drawing snowmen.
 \begin{figure}[htb]\centering
+\scsnowmandefault{adjustbaseline}
 \scsnowman[scale=3,hat,snow,arms]\scsnowman[scale=3,hat=RoyalBlue,muffler=Green]
 \scsnowman\scsnowman[scale=3]\scsnowman[scale=5]\par
 \scsnowmandefault{scale=5,hat,muffler=Red}
@@ -109,7 +112,7 @@ at that time.
 
 Since the shapes of the reference glyphs used in the Unicode code charts are not
 prescriptive, the actual fonts have a wide variety of glyph designs. However, when it
-comes to snowman, the variation between fonts is enormous. This variation is very
+comes to snowmen, the variation between fonts is enormous. This variation is very
 interesting, however, on the other hand, problematic.
 
 Table \ref{table:actualfonts} shows the variety of ``snowman'' in actual fonts.
@@ -139,37 +142,81 @@ have to transfer the exact information to others.
 \section{Introduction to \Lpack{scsnowman} Package}
 
 The \LaTeX\ package \Lpack{scsnowman} provides a command  \verb+\scsnowman+, which can
-display many variants of snowman. This package depends on Ti\emph{k}Z package for drawing
+display many variants of snowmen. This package depends on Ti\emph{k}Z package for drawing
 snowman images.
 
 To use this package, load it in preamble:
 \begin{quote}\begin{verbatim}
 \usepackage{scsnowman}
 \end{verbatim}\end{quote}
-In the main document, use \verb+\scsnowman+ command to print snowman: \scsnowman.
+In the main document, use \verb+\scsnowman+ command to print a snowman: \scsnowman.
 By default, the snowman is ``plain'' style, without any decoration such as snow, a hat or
 a muffler.
 
 \section{Command Options}
 
-You can customize the style of snowman using the optional argument. The syntax is
+You can customize the style of a snowman using the optional argument. The syntax is
 \begin{quote}
 \verb+\scsnowman[+\emph{$\langle$key-value list$\rangle$}\verb+]+
 \end{quote}
+
+\subsection{Scaling and Adjustment Options}
+
+The following \emph{key}s are available:
+\begin{quote}
+  \Lopt{scale}, \Lopt{adjustbaseline}
+\end{quote}
+The key \Lopt{scale} takes a scale factor. The origin of scaling is set at the lower
+left corner of the bounding box. For example, \verb+\scsnowman+,
+\verb+\scsnowman[scale=3]+ and \verb+\scsnowman[scale=5]+ give:
+\begin{quote}\begin{minipage}{.9\textwidth}
+\scsnowman\scsnowman[scale=3]\scsnowman[scale=5]\quad
+with visualized bounding boxes:
+\fboxsep0pt\fbox{\scsnowman}\fbox{\scsnowman[scale=3]}\fbox{\scsnowman[scale=5]}
+\end{minipage}\end{quote}
+When the key \Lopt{adjustbaseline} is specified (or, \Lopt{adjustbaseline=true}),
+the base line of the in-line snowman will be adjusted to that of the surrounding texts.
+This will be helpful when a snowman appears to be ``floating in the air.''\\[1ex]
+\begin{minipage}{.55\textwidth}\begin{verbatim}
+  Text,
+  \scsnowman[scale=1]%
+  \scsnowman[scale=4]%
+  \scsnowman[scale=7],
+  T.\par
+  Text,
+  \scsnowman[adjustbaseline,scale=1]%
+  \scsnowman[adjustbaseline,scale=4]%
+  \scsnowman[adjustbaseline,scale=7],
+  T.
+\end{verbatim}\end{minipage}
+\begin{minipage}{.4\textwidth}
+  Text,
+  \scsnowman[scale=1]%
+  \scsnowman[scale=4]%
+  \scsnowman[scale=7],
+  T.\par
+  Text,
+  \scsnowman[adjustbaseline,scale=1]%
+  \scsnowman[adjustbaseline,scale=4]%
+  \scsnowman[adjustbaseline,scale=7],
+  T.
+\end{minipage}
+
+\subsection{Design Options}
+
 Following \emph{key}s take a \emph{value} which specifies color. When the \emph{value} is omitted,
 the default color, black or white, will be used:
 \begin{quote}
   \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{sweat},
   \Lopt{hat}, \Lopt{arms}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}
 \end{quote}
-Other \emph{key}s require one specific \emph{value}:
+The following \emph{key} require one specific \emph{value}:
 \begin{quote}
-  \Lopt{mouthshape}, \Lopt{scale}
+  \Lopt{mouthshape}
 \end{quote}
 The key \Lopt{mouthshape} takes one of the followings: \Lopt{smile}, \Lopt{tight} or \Lopt{frown}.
-The key \Lopt{scale} takes a scale factor.
 
-Here is some examples:\\[1ex]
+Here are some examples:\\[1ex]
 \begin{minipage}{.7\textwidth}\begin{verbatim}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
   \scsnowman[scale=3,hat,snow,arms,buttons]
@@ -192,19 +239,101 @@ The package default is the ``plain'' style snowman. This default can be changed 
 \end{quote}
 The available \emph{key}s are the same as those in \verb+\scsnowman+.
 
-Here is some examples:\\[1ex]
-\begin{minipage}{.65\textwidth}\begin{verbatim}
+Here are some examples:\\[1ex]
+\begin{minipage}{.6\textwidth}\begin{verbatim}
   \scsnowmandefault{scale=3,hat=red}
   \scsnowman
-  \scsnowman[body,hat=red,muffler=blue]
+  \scsnowman[body,muffler=blue]
   \scsnowman[hat=green,snow]
 \end{verbatim}\end{minipage}
-\begin{minipage}{.3\textwidth}
+\begin{minipage}{.35\textwidth}
   \scsnowmandefault{scale=5,hat=red}
   \scsnowman
-  \scsnowman[body,hat=red,muffler=blue]
+  \scsnowman[body,muffler=blue]
   \scsnowman[hat=green,snow]
 \end{minipage}
+
+\section{Changing Item Labels and QED Symbols}
+
+For those who want more snowmen in the documents, currently \Lpack{scsnowman} provides
+the following additional commands:
+\begin{quote}
+\verb+\makeitemsnowman+:\\
+  \makeitemsnowman
+  Change item labels in \Lopt{itemize} environment to snowmen
+  {\labelitemi\labelitemii\labelitemiii\labelitemiv}.
+  \makeitemother
+  The command \verb+\makeitemother+ restores the default,
+  usually {\labelitemi\labelitemii\labelitemiii\labelitemiv}.\par
+\verb+\makeqedsnowman+:\\
+  \makeqedsnowman
+  Change the QED symbol in \Lopt{proof} environment to a snowman {\qedsymbol}.
+  The package \Lpack{amsthm} is required.
+  \makeqedother
+  The command \verb+\makeqedother+ restores the default, usually {\qedsymbol}.
+\end{quote}
+These commands can be used wherever you want, and are effective within the current group.
+
+Here are some examples:\\[1ex]
+\begin{minipage}{.5\textwidth}\begin{verbatim}
+  \begin{itemize}
+    \makeitemsnowman
+    \item Foo X.
+    \begin{itemize}
+      \item Bar A.
+      \begin{itemize}
+        \item Baz P. \item Baz Q.
+      \end{itemize}
+      \item Bar B. \item Bar C.
+    \end{itemize}
+  \end{itemize}
+\end{verbatim}\end{minipage}
+\begin{minipage}{.45\textwidth}
+  \begin{itemize}
+    \makeitemsnowman
+    \item Foo X.
+    \begin{itemize}
+      \item Bar A.
+      \begin{itemize}
+        \item Baz P. \item Baz Q.
+      \end{itemize}
+      \item Bar B. \item Bar C.
+    \end{itemize}
+  \end{itemize}
+\end{minipage}\\[1ex]
+\begin{minipage}{.55\textwidth}\begin{verbatim}
+  \makeqedsnowman
+  \begin{theorem}
+  Given two line segments whose
+  lengths are $a$ and $b$ respectively,
+  there is a real number $r$ such that
+  $b=ra$.
+  \end{theorem}
+  \begin{proof}
+  To prove it by contradiction try and
+  asuume that the statement is false,
+  proceed from there and at some point
+  you will arrive to a contradiction.
+  \end{proof}
+\end{verbatim}\end{minipage}
+\begin{minipage}{.45\textwidth}
+  \makeqedsnowman
+  \begin{theorem}
+  Given two line segments whose
+  lengths are $a$ and $b$ respectively,
+  there is a real number $r$ such that
+  $b=ra$.
+  \end{theorem}
+  \begin{proof}
+  To prove it by contradiction try and
+  asuume that the statement is false,
+  proceed from there and at some point
+  you will arrive to a contradiction.
+  \end{proof}
+\end{minipage}
+
+The names of these commands are, of course, named after the \LaTeX\ \verb+\makeatletter+
+and \verb+\makeatother+;-)
 
 \section*{Version History}
 
@@ -215,32 +344,36 @@ This is the summary of changes. For more detail, see GitHub repository.
 Version 0.1 & 2015-12-13 & First public version on GitHub \\
 Version 0.8 & 2016-08-08 & Second public version on GitHub: \\
             &            & new variants \Lopt{buttons}, \Lopt{mouthshape}, \Lopt{sweat} are added \\
-Version 1.0 & 2016-12-22 & First CTAN release
+Version 1.0 & 2016-12-22 & First CTAN release \\
+Version 1.1 & 2017-01-22 & Add new key \Lopt{adjustbaseline}, documentation update
 \end{tabular}
 \end{table}
 
 \begin{thebibliography}{9}
 \bibitem{NAOI1}
 \href{http://d.hatena.ne.jp/NAOI/20080623/1214211959}{雪だるまの親子関係}
- -- Mac OS Xの文字コード問題に関するメモ
+\ --- Mac OS Xの文字コード問題に関するメモ
 \bibitem{NAOI2}
 \href{http://d.hatena.ne.jp/NAOI/20110707/1310031226}{ヒラギノの雪だるまは、なぜ寂しそうなのか}
- -- Mac OS Xの文字コード問題に関するメモ
+\ --- Mac OS Xの文字コード問題に関するメモ
 \bibitem{DORA1}
 \href{http://doratex.hatenablog.jp/entry/20140327/1395878814}{いろいろなゆきだるま}
- -- TeX Alchemist Online
+\ --- TeX Alchemist Online
 \bibitem{ACE1}
 \href{http://acetaminophen.hatenablog.com/entry/2014/09/05/090313}{「\TeX{}でゆきだるま」をもっとたくさん}
- -- Acetaminophen's diary
+\ --- Acetaminophen's diary
 \bibitem{ZR1}
 \href{http://d.hatena.ne.jp/zrbabbler/20140911/1410439004}{Unicode の例の雪だるまは多分アレ}
- -- マクロツイーター
+\ --- マクロツイーター
 \bibitem{ACE2}
 \href{http://acetaminophen.hatenablog.com/entry/2015/12/13/080226}{\TeX{}でゆきだるまを“もっともっと”たくさん}
- -- Acetaminophen's diary
+\ --- Acetaminophen's diary
 \bibitem{ACE3}
 \href{http://acetaminophen.hatenablog.com/entry/2016/08/08/080800}{夏といえば、やっぱり「ゆきだるま」！}
- -- Acetaminophen's diary
+\ --- Acetaminophen's diary
+\bibitem{SX229957}
+\href{http://tex.stackexchange.com/questions/229957/}{How do I redefine the QED symbol to be a Unicode character?}
+\ --- \TeX\ -- \LaTeX\ Stack Exchange
 \end{thebibliography}
 
 \end{document}

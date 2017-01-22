@@ -47,7 +47,8 @@ See [LICENSE](./LICENSE).
  - 2016-08-08 Version 0.7  (Add new variant "mouthshape")
  - 2016-08-08 Version 0.8  (Add new variant "sweat", new command `\makedocumentsnowman`)
  - 2016-12-22 Version 1.0  (First CTAN release)
+ - 2017-01-22 Version 1.1  (Add new key "adjustbaseline")
 
 --------------------
-Copyright (c) 2015-2016 Hironobu Yamashita
+Copyright (c) 2015-2017 Hironobu Yamashita
 http://acetaminophen.hatenablog.com/
