@@ -105,7 +105,7 @@
       \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
         \def\sctkzsym@status{0}%
       \fi
-    \fi}
+    \fi}%
   % if the status is still not zero, throw an error
   \ifx\sctkzsym@status\relax
     \PackageError{sc#1}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
