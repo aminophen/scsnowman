@@ -138,9 +138,6 @@
 \sctkzsym@define@key@withbool{snowman}{snow}
 \sctkzsym@define@key@withbool{snowman}{adjustbaseline}
 %
-% count definitions for \sctkzsym@hndl@key@wodefault
-\newcount\sctkzsym@snowman@mouthshape@c
-%
 % definition of \scsnowman[...]
 \DeclareRobustCommand\scsnowman[1][]{%
   % key initialization using default
@@ -191,7 +188,7 @@
   \sctkzsym@hndl@key@withbool{snowman}{eyes}%
   \def\sctkzsym@snowman@eyepath{\path[fill=\sctkzsym@snowman@eyefill]}%
   % check mouth (currently mouth=<color> not supported; falling back to default-(anti)color)
-  \sctkzsym@hndl@key@wodefault{snowman}{mouthshape}{smile}{frown}{tight}%
+  \sctkzsym@hndl@key@wodefault{snowman}{mouthshape}{smile,frown,tight}%
   \sctkzsym@hndl@key@withbool{snowman}{mouth}%
   \def\sctkzsym@snowman@mouthpath{\path[draw=\sctkzsym@snowman@mouthstroke]}%
   % check sweat

@@ -64,8 +64,10 @@
 }
 %
 % key handling
-\def\sctkzsym@true{true}   % for strcmp
-\def\sctkzsym@false{false} % for strcmp
+\def\sctkzsym@true{true}   % for bool strcmp
+\def\sctkzsym@false{false} % for bool strcmp
+\newcount\sctkzsym@hndlcnt % for wodefault loop
+\let\sctkzsym@status\relax % for wodefault status
 \newcommand{\sctkzsym@hndl@key@withbool}[2]{%
   \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@false\relax
     \csname sctkzsym@#1@#2false\endcsname % <key>=false
@@ -89,23 +91,23 @@
     \fi
   \fi
 }
-\newcommand{\sctkzsym@hndl@key@wodefault}[5]{%
-  \def\@tempa{#3}%
-  \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
-    \csname sctkzsym@#1@#2@c\endcsname\@ne
-  \else
-    \def\@tempa{#4}%
-    \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
-      \csname sctkzsym@#1@#2@c\endcsname\tw@
-    \else
-      \def\@tempa{#5}%
+\newcommand{\sctkzsym@hndl@key@wodefault}[3]{%
+  % initialize
+  \let\sctkzsym@status\relax
+  % #3 should be comma-separated list of candidate values (syntax change in v1.2)
+  \@for\@tempa:=#3\do{%
+    % register a list of supported values
+    \advance\sctkzsym@hndlcnt\@ne
+    \expandafter\let\csname sctkzsym@#1@#2@\romannumeral\sctkzsym@hndlcnt\endcsname\@tempa
+    % check if user-specified value is valid
+    \ifx\sctkzsym@status\relax
       \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
-        \csname sctkzsym@#1@#2@c\endcsname\thr@@
-      \else
-        \PackageError{sc#1}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
-        \csname sctkzsym@#1@#2@c\endcsname\z@
+        \def\sctkzsym@status{0}%
       \fi
-    \fi
+    \fi}
+  % if the status is still not zero, throw an error
+  \ifx\sctkzsym@status\relax
+    \PackageError{sc#1}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
   \fi
 }
 %
