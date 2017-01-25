@@ -96,7 +96,8 @@
   \sctkzsym@hndlcnt\z@
   \let\sctkzsym@status\relax
   % #3 should be comma-separated list of candidate values (syntax change in v1.2)
-  \@for\@tempa:=#3\do{%
+  \edef\@tempa{\zap@space#3 \@empty}%
+  \@for\@tempa:=\@tempa\do{%
     % register a list of supported values
     \advance\sctkzsym@hndlcnt\@ne
     \expandafter\let\csname sctkzsym@#1@#2@\romannumeral\sctkzsym@hndlcnt\endcsname\@tempa
