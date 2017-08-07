@@ -106,6 +106,7 @@
 \newcommand\sctkzsym@snowman@initkeys{%
   \def\sctkzsym@snowman@init{false}%
   \def\sctkzsym@snowman@scale{1}%
+  \def\sctkzsym@snowman@shape{normal}%
   \def\sctkzsym@snowman@body{false}%
   \def\sctkzsym@snowman@eyes{true}%  default on
   \def\sctkzsym@snowman@mouthshape{smile}%
@@ -126,6 +127,7 @@
 % key definitions
 \sctkzsym@define@key@withbool{snowman}{init}
 \sctkzsym@define@key@wodefault{snowman}{scale}
+\sctkzsym@define@key@wodefault{snowman}{shape}
 \sctkzsym@define@key@withbool{snowman}{body}
 \sctkzsym@define@key@withbool{snowman}{eyes}
 \sctkzsym@define@key@withword{snowman}{mouthshape}{smile,frown,tight}
@@ -221,7 +223,12 @@
   %
   %%%%% input from def file
   %
-  \sctkzsym@snowman@normal
+  \expandafter\ifx\csname sctkzsym@snowman@\sctkzsym@snowman@shape\endcsname\relax
+    \PackageError{scsnowman}{%
+      Unsupported value `\sctkzsym@snowman@shape' for shape}\@ehc
+  \else
+    \csname sctkzsym@snowman@\sctkzsym@snowman@shape\endcsname
+  \fi
   %
   %%%%%
   %
