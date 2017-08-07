@@ -205,15 +205,20 @@ This will be helpful when a snowman appears to be ``floating in the air.''\\[1ex
 \subsection{Design Options}
 
 Following \emph{key}s take a \emph{value} which specifies color. When the \emph{value} is omitted,
-the default color, black or white, will be used:
+it reacts to the surrounding text color:
 \begin{quote}
   \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{sweat},
   \Lopt{hat}, \Lopt{arms}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}
 \end{quote}
-The following \emph{key} require one specific \emph{value}:
+The following \emph{key}s require one specific \emph{value}:
 \begin{quote}
-  \Lopt{mouthshape}
+  \Lopt{shape}, \Lopt{mouthshape}
 \end{quote}
+
+The key \Lopt{shape} specifies the outline shape of the snowman body.
+Currently, only \Lopt{shape=normal} is officially available, but you can define and use other shapes
+using \verb+\usescsnowmanlibrary+ command (described later, section \ref{usescsnowmanlibrary}).
+
 The key \Lopt{mouthshape} takes one of the followings: \Lopt{smile}, \Lopt{tight} or \Lopt{frown}.
 
 Here are some examples:\\[1ex]
@@ -228,6 +233,20 @@ Here are some examples:\\[1ex]
   \scsnowman[scale=3,hat,snow,arms,buttons]
   \scsnowman[scale=2,mouthshape=tight,muffler=red]
   \scsnowman[scale=2,mouthshape=frown,hat=green]
+\end{minipage}\\[1ex]
+\begin{minipage}{.7\textwidth}\begin{verbatim}
+ {\color{blue}
+  \scsnowman[scale=2,body,hat=red,muffler=blue]
+  \scsnowman[scale=3,hat,snow,arms,buttons]
+  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,mouthshape=frown,hat=green]}
+\end{verbatim}\end{minipage}
+\begin{minipage}{.25\textwidth}
+ {\color{blue}
+  \scsnowman[scale=2,body,hat=red,muffler=blue]
+  \scsnowman[scale=3,hat,snow,arms,buttons]
+  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,mouthshape=frown,hat=green]}
 \end{minipage}
 
 \section{Changing the Default}
@@ -252,6 +271,24 @@ Here are some examples:\\[1ex]
   \scsnowman[body,muffler=blue]
   \scsnowman[hat=green,snow]
 \end{minipage}
+
+\section{Adding User-defined Snowman Shapes}\label{usescsnowmanlibrary}
+
+Any users can define and use custom snowman shape definitions.
+Here is a description of adding a shape named \Lopt{myfavorite}.
+\begin{enumerate}
+  \item Prepare a snowman definition file \texttt{scsnowman-myfavorite.def}
+    and put it into \verb+$TEXMF+ tree (e.g. \verb+texmf-local/tex/latex/scsnowman/+).
+    For the format of snowman definition files, please refer to \texttt{scsnowman-normal.def}.
+  \item Use \verb+\usescsnowmanlibrary+ command (don't forget \emph{sc}!) to load it.
+\begin{verbatim}
+  \usepackage{scsnowman}
+  \usescsnowmanlibrary{myfavorite}
+\end{verbatim}
+  \item You can use the shape by \verb+\scsnowman[shape=myfavorite]+ command.
+\end{enumerate}
+If you have created a fancy snowman, please contact me, so that I can incorporate it
+into the official release!
 
 \section{Changing Item Labels and QED Symbols}
 
@@ -335,6 +372,8 @@ Here are some examples:\\[1ex]
 The names of these commands are, of course, named after the \LaTeX\ \verb+\makeatletter+
 and \verb+\makeatother+;-)
 
+\newpage
+
 \section*{Version History}
 
 This is the summary of changes. For more detail, see GitHub repository.
@@ -345,7 +384,12 @@ Version 0.1 & 2015-12-13 & First public version on GitHub \\
 Version 0.8 & 2016-08-08 & Second public version on GitHub: \\
             &            & new variants \Lopt{buttons}, \Lopt{mouthshape}, \Lopt{sweat} are added \\
 Version 1.0 & 2016-12-22 & First CTAN release \\
-Version 1.1 & 2017-01-22 & Add new key \Lopt{adjustbaseline}, documentation update
+Version 1.1 & 2017-01-22 & Add a new key \Lopt{adjustbaseline} \\
+            &            & Update documentation \\
+Version 1.2 & 2017-08-08 & Default color reacts to surrounding text color \\
+            &            & Support vertical writing on (u)p\TeX\ and Lua\TeX-ja \\
+            &            & Add a new key \Lopt{shape} \\
+            &            & Add a new command \verb+\usescsnowmanlibrary+
 \end{tabular}
 \end{table}
 

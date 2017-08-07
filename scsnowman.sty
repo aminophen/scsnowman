@@ -10,10 +10,10 @@
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2017/01/22 v1.1 Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2017/08/08 v1.2 Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
-\RequirePackage{sctkzsym-base}[2017/01/22]
+\RequirePackage{sctkzsym-base}[2017/08/08]
 %
 % make document snowman (joke)
 \ifsctkzsym@document
@@ -223,11 +223,11 @@
   %
   %%%%% input from def file
   %
-  \expandafter\ifx\csname sctkzsym@snowman@\sctkzsym@snowman@shape\endcsname\relax
+  \expandafter\ifx\csname sctkzsym@snowman@shape@\sctkzsym@snowman@shape\endcsname\relax
     \PackageError{scsnowman}{%
       Unsupported value `\sctkzsym@snowman@shape' for shape}\@ehc
   \else
-    \csname sctkzsym@snowman@\sctkzsym@snowman@shape\endcsname
+    \csname sctkzsym@snowman@shape@\sctkzsym@snowman@shape\endcsname
   \fi
   %
   %%%%%
@@ -247,8 +247,18 @@
   \sctkzsym@snowman@defaultkeys
 }
 %
+% definition of \usescsnowmanlibrary{...}
+\newcommand{\usescsnowmanlibrary}[1]{%
+  \edef\@tempa{\zap@space#1 \@empty}%
+  \@for\@tempa:=\@tempa\do{%
+    \chardef\sctkzsym@catcode=\catcode`\@\relax
+    \makeatletter\input{scsnowman-\@tempa.def}%
+    \catcode`\@=\sctkzsym@catcode\relax}%
+}
+\@onlypreamble\usescsnowmanlibrary
+%
 % load shape definitions
-\input{scsnowman-normal.def}
+\usescsnowmanlibrary{normal}% default
 %
 \endinput
 %%
