@@ -37,20 +37,32 @@ See [LICENSE](./LICENSE).
 
 ## Version History
 
- - 2015-12-13 Version 0.1  (First commit)
- - 2015-12-19 Version 0.2  (Trivial fix)
- - 2016-08-06 Version 0.3  (Add new command `\makeqedsnowman`)
- - 2016-08-06 Version 0.4  (Add new command `\makeitemsnowman`)
- - 2016-08-07 Version 0.5  (Add new command `\scsnowmandefault`)
- - 2016-08-07 Version 0.5a (Add "init" option; fix default for qed/item)
- - 2016-08-08 Version 0.6  (Add new variant "buttons")
- - 2016-08-08 Version 0.7  (Add new variant "mouthshape")
- - 2016-08-08 Version 0.8  (Add new variant "sweat", new command `\makedocumentsnowman`)
- - 2016-12-22 Version 1.0  (First CTAN release)
- - 2017-01-22 Version 1.1  (Add new key "adjustbaseline")
- - 2017-08-08 Version 1.2  (Default color reacts to surrounding text color,
-                            support Japanese vertical writing,
-                            add new key "shape", new command `\usescsnowmanlibrary`)
+ - 2015-12-13 Version 0.1
+    - First commit
+ - 2015-12-19 Version 0.2
+    - Trivial fix
+ - 2016-08-06 Version 0.3
+    - Add new command `\makeqedsnowman`
+ - 2016-08-06 Version 0.4
+    - Add new command `\makeitemsnowman`
+ - 2016-08-07 Version 0.5
+    - Add new command `\scsnowmandefault`
+ - 2016-08-07 Version 0.5a
+    - Add "init" option; fix default for qed/item
+ - 2016-08-08 Version 0.6
+    - Add new variant "buttons"
+ - 2016-08-08 Version 0.7
+    - Add new variant "mouthshape"
+ - 2016-08-08 Version 0.8
+    - Add new variant "sweat", new command `\makedocumentsnowman`
+ - 2016-12-22 Version 1.0
+    - First CTAN release
+ - 2017-01-22 Version 1.1
+    - Add new key "adjustbaseline"
+ - 2017-08-08 Version 1.2
+    - Default color reacts to surrounding text color
+    - Support Japanese vertical writing
+    - Add new key "shape", new command `\usescsnowmanlibrary`
 
 --------------------
 Copyright (c) 2015-2017 Hironobu Yamashita
