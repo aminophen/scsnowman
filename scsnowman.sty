@@ -128,7 +128,7 @@
 \sctkzsym@define@key@wodefault{snowman}{scale}
 \sctkzsym@define@key@withbool{snowman}{body}
 \sctkzsym@define@key@withbool{snowman}{eyes}
-\sctkzsym@define@key@wodefault{snowman}{mouthshape}
+\sctkzsym@define@key@withword{snowman}{mouthshape}{smile,frown,tight}
 \sctkzsym@define@key@withbool{snowman}{mouth}
 \sctkzsym@define@key@withbool{snowman}{sweat}
 \sctkzsym@define@key@withbool{snowman}{hat}
@@ -188,7 +188,7 @@
   \sctkzsym@hndl@key@withbool{snowman}{eyes}%
   \def\sctkzsym@snowman@eyepath{\path[fill=\sctkzsym@snowman@eyefill]}%
   % check mouth (currently mouth=<color> not supported; falling back to default-(anti)color)
-  \sctkzsym@hndl@key@wodefault{snowman}{mouthshape}{smile,frown,tight}%
+  \sctkzsym@hndl@key@withword{snowman}{mouthshape}%
   \sctkzsym@hndl@key@withbool{snowman}{mouth}%
   \def\sctkzsym@snowman@mouthpath{\path[draw=\sctkzsym@snowman@mouthstroke]}%
   % check sweat

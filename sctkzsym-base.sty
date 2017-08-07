@@ -55,19 +55,32 @@
 \fi
 %
 % key definitions
+%  * any value; if none, 'true' is assumed
 \newcommand{\sctkzsym@define@key@withbool}[2]{%
   \define@key{sctkzsym@#1}{#2}[true]{\expandafter\def\csname sctkzsym@#1@#2\endcsname{##1}}%
   \expandafter\newif\csname ifsctkzsym@#1@#2\endcsname
 }
+%  * any value; if none, an error will be raised
 \newcommand{\sctkzsym@define@key@wodefault}[2]{%
   \define@key{sctkzsym@#1}{#2}{\expandafter\def\csname sctkzsym@#1@#2\endcsname{##1}}%
 }
-%
-% key handling
+%  * one from arg #3; arg #3 should be comma-separated list of candidates
+\newcommand{\sctkzsym@define@key@withword}[3]{%
+  \define@key{sctkzsym@#1}{#2}{\expandafter\def\csname sctkzsym@#1@#2\endcsname{##1}}%
+  % register known values (used in key handling)
+  \sctkzsym@hndlcnt\z@
+  \edef\@tempa{\zap@space#3 \@empty}%
+  \@for\@tempa:=\@tempa\do{%
+    \advance\sctkzsym@hndlcnt\@ne
+    \expandafter\let\csname sctkzsym@#1@#2@\romannumeral\sctkzsym@hndlcnt\endcsname\@tempa}%
+}
+% other known values (used in key handling)
 \def\sctkzsym@true{true}   % for bool strcmp
 \def\sctkzsym@false{false} % for bool strcmp
-\newcount\sctkzsym@hndlcnt % for wodefault loop
-\let\sctkzsym@status\relax % for wodefault status
+%
+% key handling
+\newcount\sctkzsym@hndlcnt % for withword loop
+\let\sctkzsym@status\relax % for withword status
 \newcommand{\sctkzsym@hndl@key@withbool}[2]{%
   \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\sctkzsym@false\relax
     \csname sctkzsym@#1@#2false\endcsname % <key>=false
@@ -91,23 +104,21 @@
     \fi
   \fi
 }
-\newcommand{\sctkzsym@hndl@key@wodefault}[3]{%
+\newcommand{\sctkzsym@hndl@key@withword}[2]{%
   % initialize
-  \sctkzsym@hndlcnt\z@
+  \@tempcnta\@ne
   \let\sctkzsym@status\relax
-  % #3 should be comma-separated list of candidate values (syntax change in v1.2)
-  \edef\@tempa{\zap@space#3 \@empty}%
-  \@for\@tempa:=\@tempa\do{%
-    % register a list of supported values
-    \advance\sctkzsym@hndlcnt\@ne
-    \expandafter\let\csname sctkzsym@#1@#2@\romannumeral\sctkzsym@hndlcnt\endcsname\@tempa
-    % check if user-specified value is valid
+  % check through the registered candidate values
+  \loop\expandafter\ifx\csname sctkzsym@#1@#2@\romannumeral\@tempcnta\endcsname\relax\else
     \ifx\sctkzsym@status\relax
-      \expandafter\ifx\csname sctkzsym@#1@#2\endcsname\@tempa\relax
-        \def\sctkzsym@status{0}%
+      \expandafter\ifx\csname sctkzsym@#1@#2\expandafter\endcsname
+        \csname sctkzsym@#1@#2@\romannumeral\@tempcnta\endcsname\relax
+          \def\sctkzsym@status{0}%
       \fi
-    \fi}%
-  % if the status is still not zero, throw an error
+    \fi
+    \advance\@tempcnta\@ne
+  \repeat
+  % if the status is still not zero, user-specified value is invalid; throw an error
   \ifx\sctkzsym@status\relax
     \PackageError{sc#1}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
   \fi
