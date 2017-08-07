@@ -219,7 +219,7 @@
   %
   % drawing snowman
   \set@sctkzsym@coord@scl{\sctkzsym@snowman@scale}%
-  \ifdim\sctkzsym@coord@scl<0pt\set@sctkzsym@coord@scl{-\sctkzsym@snowman@scale}\fi%
+  \ifdim\sctkzsym@coord@scl<\z@\set@sctkzsym@coord@scl{-\sctkzsym@snowman@scale}\fi%
   %
   %%%%% input from def file
   %

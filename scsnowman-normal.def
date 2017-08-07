@@ -18,6 +18,7 @@
     \else
       \z@
     \fi}%
+  \sctkzsym@beginyokobox
   \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale,baseline=\sctkzsym@coord@baseline]
     \useasboundingbox(0,0) rectangle (1,1);
       \sctkzsym@snowman@bodypath % body (IPA-like)
@@ -115,6 +116,7 @@
       \sctkzsym@snowman@snowpath (0.94,0.23) circle (0.04);
     \fi
   \end{tikzpicture}%
+  \sctkzsym@endyokobox
 }
 \endinput
 %%

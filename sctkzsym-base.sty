@@ -14,6 +14,10 @@
 \RequirePackage{tikz}
 \RequirePackage{keyval}
 %
+\ifx\kanjiskip\@undefined\else
+  \IfFileExists{pxeveryshi.sty}{\RequirePackage{pxeveryshi}}{}
+\fi
+%
 % prepare for options
 \newif\ifsctkzsym@document
 \newif\ifsctkzsym@qed
@@ -127,7 +131,9 @@
 % setup for tikzpicture
 \newlength{\sctkzsym@coord@baseline}
 \newlength{\sctkzsym@coord@scl}
-\newcommand*{\set@sctkzsym@coord@scl}[1]{\pgfmathsetlength{\sctkzsym@coord@scl}{#1pt}}
+\newcommand*{\set@sctkzsym@coord@scl}[1]{\pgfmathsetlength{\sctkzsym@coord@scl}{#1\p@}}
+\newcommand{\sctkzsym@beginyokobox}{\ifx\tate\@undefined\else\leavevmode\hbox\bgroup\yoko\fi}
+\newcommand{\sctkzsym@endyokobox}{\ifx\tate\@undefined\else\egroup\fi}
 \newcommand{\sctkzsym@defaultcolor}{black}
 \newcommand{\sctkzsym@defaultanticolor}{white}
 %
