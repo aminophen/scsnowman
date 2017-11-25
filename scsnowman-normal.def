@@ -14,12 +14,12 @@
 \def\sctkzsym@snowman@shape@normal{%
   \setlength{\sctkzsym@coord@baseline}{%
     \ifsctkzsym@snowman@adjustbaseline
-      \dimexpr0.144ex*\sctkzsym@snowman@scale\relax
+      0.144ex\relax
     \else
       \z@
     \fi}%
   \sctkzsym@beginyokobox
-  \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale,baseline=\sctkzsym@coord@baseline]
+  \begin{tikzpicture}[x=1.8ex,y=1.8ex,line width=0.025ex*\sctkzsym@coord@scl,line join=round,line cap=round,scale=\sctkzsym@snowman@scale,baseline=\sctkzsym@coord@baseline*\sctkzsym@coord@scl]
     \useasboundingbox(0,0) rectangle (1,1);
       \sctkzsym@snowman@bodypath % body (IPA-like)
         (0.5,0.72) .. controls (0.64,0.72) and (0.76,0.65) ..
