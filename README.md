@@ -63,6 +63,8 @@ See [LICENSE](./LICENSE).
     - Default color reacts to surrounding text color
     - Support Japanese vertical writing
     - Add new key "shape", new command `\usescsnowmanlibrary`
+ - 2017-11-25 Version 1.2a
+    - Fix a bug in scaling with "adjustbaseline"
 
 --------------------
 Copyright (c) 2015-2017 Hironobu Yamashita

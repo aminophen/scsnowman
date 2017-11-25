@@ -10,7 +10,7 @@
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesFile{scsnowman-normal.def}[2017/08/08 v1.2 scsnowman definition (normal)]
+\ProvidesFile{scsnowman-normal.def}[2017/11/25 v1.2a scsnowman definition (normal)]
 \def\sctkzsym@snowman@shape@normal{%
   \setlength{\sctkzsym@coord@baseline}{%
     \ifsctkzsym@snowman@adjustbaseline
