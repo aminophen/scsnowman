@@ -118,6 +118,8 @@
   \def\sctkzsym@snowman@buttons{false}%
   \def\sctkzsym@snowman@snow{false}%
   \def\sctkzsym@snowman@adjustbaseline{false}%
+  \def\sctkzsym@snowman@mikan{false}%
+  \def\sctkzsym@snowman@leaf{false}%
 }
 \newcommand{\sctkzsym@snowman@defaultkeys}{%
   \sctkzsym@snowman@initkeys
@@ -139,6 +141,8 @@
 \sctkzsym@define@key@withbool{snowman}{buttons}
 \sctkzsym@define@key@withbool{snowman}{snow}
 \sctkzsym@define@key@withbool{snowman}{adjustbaseline}
+\sctkzsym@define@key@withbool{snowman}{mikan}
+\sctkzsym@define@key@withbool{snowman}{leaf}
 %
 % definition of \scsnowman[...]
 \DeclareRobustCommand\scsnowman[1][]{%
@@ -216,6 +220,15 @@
   \sctkzsym@hndl@key@withbool{snowman}{snow}%
   % check adjustbaseline
   \sctkzsym@hndl@key@onlybool{snowman}{adjustbaseline}%
+  % check mikan
+  \sctkzsym@hndl@key@withbool{snowman}{mikan}%
+  \sctkzsym@hndl@key@withbool{snowman}{leaf}%
+  \def\sctkzsym@snowman@mikanstroke{\sctkzsym@snowman@mikan}%
+  \def\sctkzsym@snowman@mikanfill{\sctkzsym@snowman@mikan}%
+  \def\sctkzsym@snowman@mikanpath{\path[draw=\sctkzsym@snowman@mikanstroke,fill=\sctkzsym@snowman@mikanfill]}%
+  \def\sctkzsym@snowman@leafstroke{\sctkzsym@snowman@leaf}%
+  \def\sctkzsym@snowman@leaffill{\sctkzsym@snowman@leaf}%
+  \def\sctkzsym@snowman@leafpath{\path[draw=\sctkzsym@snowman@leafstroke,fill=\sctkzsym@snowman@leaffill]}%
   %
   % drawing snowman
   \set@sctkzsym@coord@scl{\sctkzsym@snowman@scale}%
