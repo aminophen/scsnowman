@@ -35,9 +35,17 @@
 %
 % save QED symbol before change (joke)
 \ifsctkzsym@qed
-  \RequirePackage{amsthm}
+  \def\sctkzsym@saving@qedsymbol{%
+    \ifx\qedsymbol\@undefined\else
+      \let\sctkzsym@saved@qedsymbol\qedsymbol
+    \fi
+  }
+  % if `amsthm' is already loaded, save it now
+  \sctkzsym@saving@qedsymbol
+  % otherwise, saving is delayed till \begin{document}
+  % (hope \makeqed... is not already executed...)
   \ifx\sctkzsym@saved@qedsymbol\@undefined
-    \let\sctkzsym@saved@qedsymbol\qedsymbol
+    \AtBeginDocument{\sctkzsym@saving@qedsymbol}
   \fi
   \newcommand{\makeqedother}{%
     \let\qedsymbol\sctkzsym@saved@qedsymbol
