@@ -58,14 +58,18 @@ See [LICENSE](./LICENSE).
  - 2016-12-22 Version 1.0
     - First CTAN release
  - 2017-01-22 Version 1.1
-    - Add new key "adjustbaseline"
+    - Add new key "adjustbaseline" (Thanks: @doraTeX)
  - 2017-08-08 Version 1.2
     - Default color reacts to surrounding text color
     - Support Japanese vertical writing
     - Add new key "shape", new command `\usescsnowmanlibrary`
  - 2017-11-25 Version 1.2a
-    - Fix a bug in scaling with "adjustbaseline"
+    - Fix a bug in scaling with "adjustbaseline" (Thanks: @zr-tex8r)
+ - 2018-01-05 Version 1.2b
+    - A Happy New Year!
+    - Add new keys "mikan" and "leaf" (Thanks: @k16shikano)
+    - Stopped loading amsthm package by default
 
 --------------------
-Copyright (c) 2015-2017 Hironobu Yamashita
+Copyright (c) 2015-2018 Hironobu Yamashita
 http://acetaminophen.hatenablog.com/

@@ -3,14 +3,14 @@
 %% Maintained on GitHub:
 %% https://github.com/aminophen/scsnowman
 %%
-%% Copyright (c) 2015-2017 Hironobu Yamashita
+%% Copyright (c) 2015-2018 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesFile{scsnowman-normal.def}[2017/11/25 v1.2a scsnowman definition (normal)]
+\ProvidesFile{scsnowman-normal.def}[2018/01/05 v1.2b scsnowman definition (normal)]
 \def\sctkzsym@snowman@shape@normal{%
   \setlength{\sctkzsym@coord@baseline}{%
     \ifsctkzsym@snowman@adjustbaseline
