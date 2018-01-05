@@ -1,10 +1,10 @@
 %%
 %% This is the documentation of scsnowman package.
-%% (Last Update: 2017/01/22)
+%% (Last Update: 2018/01/05)
 %% Maintained on GitHub:
 %% https://github.com/aminophen/scsnowman
 %%
-%% Copyright (c) 2015-2017 Hironobu Yamashita
+%% Copyright (c) 2015-2018 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
@@ -16,6 +16,7 @@
 \usepackage{scsnowman}
 \GetFileInfo{scsnowman.sty}
 \usepackage{array}
+\usepackage{amsthm}
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
 \def\BigSnowman#1{\fontsize{60pt}{60pt}\selectfont\symbol{"#1}}
@@ -290,7 +291,9 @@ Here is a description of adding a shape named \Lopt{myfavorite}.
 If you have created a fancy snowman, please contact me, so that I can incorporate it
 into the official release!
 
-\section{Changing Item Labels and QED Symbols}
+\section{Funny Usages}
+
+\subsection{Changing Item Labels and QED Symbols}
 
 For those who want more snowmen in the documents, currently \Lpack{scsnowman} provides
 the following additional commands:
@@ -372,7 +375,30 @@ Here are some examples:\\[1ex]
 The names of these commands are, of course, named after the \LaTeX\ \verb+\makeatletter+
 and \verb+\makeatother+;-)
 
-\newpage
+\subsection{Drawing ``\emph{Kagami-mochi}''}
+
+Using \Lpack{scsnowman} package, you can also draw ``\emph{kagami-mochi}''
+(mirror rice cake). It is a traditional Japanese New Year decoration,
+which usually consists of two round ``\emph{mochi}'' (rice cakes), the smaller
+placed atop the larger, and a ``\emph{daidai}'' (a Japanese bitter orange)
+with an attached leaf on top.
+
+Following \emph{key}s are implemented for this usage:\footnote{Strictly speaking,
+the orange on top of rice cakes should be ``\emph{daidai}''; however,
+a ``\emph{mikan}'' is often substituted for the original ``\emph{daidai}''.}
+\begin{quote}
+  \Lopt{mikan}, \Lopt{leaf}
+\end{quote}
+The \emph{key} \Lopt{leaf} is effective only when \Lopt{mikan} is specified.
+Here is an example:\\[1ex]
+\begin{minipage}{.85\textwidth}\begin{verbatim}
+  \scsnowmandefault{scale=5.5}
+  \scsnowman[eyes=false,mouth=false,mikan=orange,leaf=green]
+\end{verbatim}\end{minipage}
+\begin{minipage}{.1\textwidth}
+  \scsnowmandefault{scale=5.5}
+  \scsnowman[eyes=false,mouth=false,mikan=orange,leaf=green]
+\end{minipage}
 
 \section*{Version History}
 
@@ -390,7 +416,9 @@ Version 1.2 & 2017-08-08 & Default color reacts to surrounding text color \\
             &            & Support vertical writing on (u)p\TeX\ and Lua\TeX-ja \\
             &            & Add a new key \Lopt{shape} \\
             &            & Add a new command \verb+\usescsnowmanlibrary+ \\
-Version 1.2a & 2017-11-25 & Fix a bug in scaling with \Lopt{adjustbaseline}
+Version 1.2a & 2017-11-25 & Fix a bug in scaling with \Lopt{adjustbaseline} \\
+Version 1.2b & 2018-01-05 & Add new keys \Lopt{mikan}, \Lopt{leaf} for drawing `kagami-mochi' \\
+             &            & Stopped loading \Lpack{amsthm} by default
 \end{tabular}
 \end{table}
 
