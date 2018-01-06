@@ -18,16 +18,16 @@
 % change enumerate label (joke)
 \def\enusnowman{%
 \@ifnextchar[%
-\sctkzsym@snowman%
-\sctkzsym@@snowman%
+\sctkzsym@enusnowman%
+\sctkzsym@@enusnowman%
 }%
-\def\sctkzsym@snowman[#1]#2{%
+\def\sctkzsym@enusnowman[#1]#2{%
 \def\sctkzsym@snowmannumeralscsnowman{%
 \scsnowman[#1]}%
 \expandafter\sctkzsym@@@snowmannumeral\expandafter{%
 \csname c@#2\endcsname}%
 }%
-\def\sctkzsym@@snowman#1{%
+\def\sctkzsym@@enusnowman#1{%
 \expandafter\sctkzsym@@snowmannumeral\expandafter{%
 \csname c@#1\endcsname}%
 }%
