@@ -105,7 +105,7 @@
 % change enumerate label using \scsnowmannumeral (joke)
 % (this feature is `scsnowman'-specific, so the name-space
 %  is intentionally set to \scsnowman@...)
-\def\enusnowman{%
+\DeclareRobustCommand{\enusnowman}{%
   \@ifnextchar[%
     {\scsnowman@enumsnowman}%
     {\scsnowman@enumsnowman[]}%
