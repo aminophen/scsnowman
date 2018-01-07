@@ -15,55 +15,6 @@
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2017/08/08]
 %
-% change enumerate label (joke)
-\def\enusnowman{%
-\@ifnextchar[%
-\sctkzsym@enusnowman%
-\sctkzsym@@enusnowman%
-}%
-\def\sctkzsym@enusnowman[#1]#2{%
-\def\sctkzsym@snowmannumeralscsnowman{%
-\scsnowman[#1]}%
-\expandafter\sctkzsym@@@snowmannumeral\expandafter{%
-\csname c@#2\endcsname}%
-}%
-\def\sctkzsym@@enusnowman#1{%
-\expandafter\sctkzsym@@snowmannumeral\expandafter{%
-\csname c@#1\endcsname}%
-}%
-%
-% change 8 to snowman in counters
-\def\sctkzsym@snowmannumeralscsnowman{\relax}
-\def\sctkzsym@snowmannumeralinterval{\relax}
-\def\scsnowmannumeral{%
-\@ifnextchar[%
-\sctkzsym@snowmannumeral%
-\sctkzsym@@snowmannumeral%
-}%
-\def\sctkzsym@snowmannumeral[#1]#2{%
-\def\sctkzsym@snowmannumeralscsnowman{%
-\scsnowman[#1]}%
-\sctkzsym@@@snowmannumeral{#2}%
-}%
-\def\sctkzsym@@snowmannumeral#1{%
-\def\sctkzsym@snowmannumeralscsnowman{%
-\scsnowman[]}%
-\sctkzsym@@@snowmannumeral{#1}%
-}%
-\def\sctkzsym@@@snowmannumeral#1{%
-\expandafter\sctkzsym@snowmannumeralhead\number#18\sctkzsym@snowmannumeralinterval\sctkzsym@snowmannumeraltail}%
-\def\sctkzsym@snowmannumeralhead#18#2\sctkzsym@snowmannumeraltail{%
-\bgroup\def\sctkzsym@@snowmannumeralinterval{#2}%
-\edef\@tempa{\sctkzsym@snowmannumeralinterval}%
-\edef\@tempb{\sctkzsym@@snowmannumeralinterval}%
-\ifx\@tempa\@tempb%
-#1%
-\else%
-#1\sctkzsym@snowmannumeralscsnowman%
-\sctkzsym@snowmannumeralhead#2\sctkzsym@snowmannumeraltail%
-\fi\egroup%
-}%
-%
 % make document snowman (joke)
 \ifsctkzsym@document
 \def\makedocumentsnowman{%
@@ -150,6 +101,51 @@
     \fi
   }
 \fi
+%
+% change enumerate label using \scsnowmannumeral (joke)
+% (this feature is `scsnowman'-specific, so the name-space
+%  is intentionally set to \scsnowman@...)
+\def\enusnowman{%
+  \@ifnextchar[%
+    {\scsnowman@enumsnowman}%
+    {\scsnowman@enumsnowman[]}%
+}
+\def\scsnowman@enumsnowman[#1]#2{%
+  \def\scsnowman@eight{\scsnowman[#1]}%
+  \expandafter\scsnowman@@numeral\expandafter{%
+    \csname c@#2\endcsname}%
+}
+%
+% change 8 to snowman in counters (joke)
+% (this feature is `scsnowman'-specific, so the name-space
+%  is intentionally set to \scsnowman@...)
+\def\scsnowman@numeral@interval{\relax}
+\def\scsnowmannumeral{%
+  \@ifnextchar[%
+    {\scsnowman@numeral}%
+    {\scsnowman@numeral[]}%
+}
+\def\scsnowman@numeral[#1]#2{%
+  \def\scsnowman@eight{\scsnowman[#1]}%
+  \scsnowman@@numeral{#2}%
+}
+\def\scsnowman@@numeral#1{%
+  \expandafter\scsnowman@numeral@head
+    \number#18\scsnowman@numeral@interval
+    \scsnowman@numeral@tail}%
+\def\scsnowman@numeral@head#18#2\scsnowman@numeral@tail{%
+  \bgroup
+    \def\scsnowman@@numeral@interval{#2}%
+    \edef\@tempa{\scsnowman@numeral@interval}%
+    \edef\@tempb{\scsnowman@@numeral@interval}%
+    \ifx\@tempa\@tempb
+      #1%
+    \else
+      #1\scsnowman@eight
+      \scsnowman@numeral@head#2\scsnowman@numeral@tail
+    \fi
+  \egroup
+}
 %
 % key initialization
 \newcommand\sctkzsym@snowman@initkeys{%
