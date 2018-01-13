@@ -208,8 +208,8 @@ This will be helpful when a snowman appears to be ``floating in the air.''\\[1ex
 Following \emph{key}s take a \emph{value} which specifies color. When the \emph{value} is omitted,
 it reacts to the surrounding text color:
 \begin{quote}
-  \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{sweat},
-  \Lopt{hat}, \Lopt{arms}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}
+  \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{sweat}, \Lopt{arms},
+  \Lopt{hat}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}, \Lopt{broom}
 \end{quote}
 The following \emph{key}s require one specific \emph{value}:
 \begin{quote}
@@ -226,27 +226,27 @@ Here are some examples:\\[1ex]
 \begin{minipage}{.7\textwidth}\begin{verbatim}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
   \scsnowman[scale=3,hat,snow,arms,buttons]
-  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]
 \end{verbatim}\end{minipage}
 \begin{minipage}{.25\textwidth}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
   \scsnowman[scale=3,hat,snow,arms,buttons]
-  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]
 \end{minipage}\\[1ex]
 \begin{minipage}{.7\textwidth}\begin{verbatim}
  {\color{blue}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
   \scsnowman[scale=3,hat,snow,arms,buttons]
-  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]}
 \end{verbatim}\end{minipage}
 \begin{minipage}{.25\textwidth}
  {\color{blue}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
   \scsnowman[scale=3,hat,snow,arms,buttons]
-  \scsnowman[scale=2,mouthshape=tight,muffler=red]
+  \scsnowman[scale=2,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]}
 \end{minipage}
 
@@ -418,7 +418,8 @@ Version 1.2 & 2017-08-08 & Default color reacts to surrounding text color \\
             &            & Add a new command \verb+\usescsnowmanlibrary+ \\
 Version 1.2a & 2017-11-25 & Fix a bug in scaling with \Lopt{adjustbaseline} \\
 Version 1.2b & 2018-01-05 & Add new keys \Lopt{mikan}, \Lopt{leaf} for drawing `kagami-mochi' \\
-             &            & Stopped loading \Lpack{amsthm} by default
+             &            & Stopped loading \Lpack{amsthm} by default \\
+Version 1.2c & 2018-??-?? & Add a new key \Lopt{broom}
 \end{tabular}
 \end{table}
 
