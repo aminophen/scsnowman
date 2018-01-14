@@ -146,6 +146,80 @@
     \fi
   \egroup
 }
+%------------------------------- ZR something BEGIN
+
+% unique token
+\def\scsnowman@end{\scsnowman@end@}
+
+\let\scsnowman@eight\relax
+
+%% \scsnowman@scan@option\CScontinue{<prologue>}
+\def\scsnowman@scan@option#1#2{%
+  \scsnowman@scan@option@a#2[]\scsnowman@end#1%
+}
+\def\scsnowman@scan@option@a#1[#2]#3\scsnowman@end#4{%
+  #4{#2}%
+}
+
+\def\enusnowman#1#{%
+  \scsnowman@scan@option\scsnowman@enumsnowman{#1}%
+}
+\def\scsnowman@enumsnowman#1#2{%
+  \scsnowmanNumeral{#1}{\@nameuse{c@#2}}%
+}
+
+% For use with \pagenumbering.
+\def\@enusnowman{%
+  \scsnowmanNumeral{}%
+}
+
+\def\scsnowmannumeral#1#{%
+  \scsnowman@scan@option\scsnowmanNumeral{#1}%
+}
+
+% \scsnowmanNumeral{<option>}{<number>}
+% internal entry point
+\newcommand*\scsnowmanNumeral[2]{%
+  \expandafter\scsnowman@@numeral\number#2\relax\scsnowman@end{#1}%
+}
+\def\scsnowman@@numeral#1\relax#2\scsnowman@end#3{%
+  \scsnowman@numeral{#3}{#1}%
+}
+\DeclareRobustCommand*\scsnowman@numeral[2]{%
+  \begingroup
+    \def\scsnowman@eight{\scsnowman[#1]}%
+    \scsnowman@numeral@a#28\scsnowman@end
+  \endgroup
+}
+\def\scsnowman@numeral@a#18#2\scsnowman@end{%
+  \ifx\scsnowman@end#2\scsnowman@end
+    #1%
+  \else
+    #1\scsnowman@eight
+    \scsnowman@numeral@a#2\scsnowman@end
+  \fi
+}
+
+\providecommand*\pdfstringdefPreHook{}
+\g@addto@macro\pdfstringdefPreHook{%
+  \let\scsnowman@eight\scsnowman@hy@eight
+  \let\scsnowman@numeral\scsnowman@hy@numeral
+}
+\def\scsnowman@hy@numeral#1#2{% #1 is ignored
+  \scsnowman@numeral@a#28\scsnowman@end
+}
+
+\DeclareTextCommand{\scsnowman@hy@eight}{PU}{\9046\003}% U+2603
+\DeclareTextCommand{\scsnowman@hy@eight}{PD1}{8}%fallback
+\ifx\forcecjktoken\@undefined\else %upTeX
+  \begingroup
+    \kansujichar8="2603
+    \xdef\scsnowman@hy@eight{\kansuji8}
+  \endgroup
+\fi
+
+
+%------------------------------- ZR something END
 %
 % key initialization
 \newcommand\sctkzsym@snowman@initkeys{%
