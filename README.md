@@ -69,6 +69,8 @@ See [LICENSE](./LICENSE).
     - A Happy New Year!
     - Add new keys "mikan" and "leaf" (Thanks: @k16shikano)
     - Stopped loading amsthm package by default
+ - 2018-01-15 Version 1.2c
+    - Add a new key "broom"  (Thanks: @zr-tex8r)
 
 --------------------
 Copyright (c) 2015-2018 Hironobu Yamashita
