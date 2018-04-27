@@ -191,6 +191,7 @@
   \def\sctkzsym@snowman@shape{normal}%
   \def\sctkzsym@snowman@body{false}%
   \def\sctkzsym@snowman@eyes{true}%  default on
+  \def\sctkzsym@snowman@nose{false}%
   \def\sctkzsym@snowman@mouthshape{smile}%
   \def\sctkzsym@snowman@mouth{true}% default on
   \def\sctkzsym@snowman@sweat{false}%
@@ -215,6 +216,7 @@
 \sctkzsym@define@key@wodefault{snowman}{shape}
 \sctkzsym@define@key@withbool{snowman}{body}
 \sctkzsym@define@key@withbool{snowman}{eyes}
+\sctkzsym@define@key@withbool{snowman}{nose}
 \sctkzsym@define@key@withword{snowman}{mouthshape}{smile,frown,tight}
 \sctkzsym@define@key@withbool{snowman}{mouth}
 \sctkzsym@define@key@withbool{snowman}{sweat}
@@ -251,6 +253,8 @@
     \def\sctkzsym@snowman@snowfill{\sctkzsym@snowman@snow}%
     \def\sctkzsym@snowman@snowpath{\path[draw=\sctkzsym@snowman@snowstroke,fill=\sctkzsym@snowman@snowfill]}%
     \def\sctkzsym@snowman@eyefill{\sctkzsym@defaultanticolor}%
+    \def\sctkzsym@snowman@nosestroke{\sctkzsym@defaultanticolor}%
+    \def\sctkzsym@snowman@nosefill{\sctkzsym@snowman@nose}%
     \def\sctkzsym@snowman@mouthstroke{\sctkzsym@defaultanticolor}%
     \def\sctkzsym@snowman@sweatstroke{\sctkzsym@defaultanticolor}%
     \def\sctkzsym@snowman@sweatfill{\sctkzsym@snowman@sweat}%
@@ -266,6 +270,8 @@
     \def\sctkzsym@snowman@snowfill{}%
     \def\sctkzsym@snowman@snowpath{\path[draw=\sctkzsym@snowman@snowstroke]}%
     \def\sctkzsym@snowman@eyefill{\sctkzsym@defaultcolor}%
+    \def\sctkzsym@snowman@nosestroke{\sctkzsym@snowman@nose}%
+    \def\sctkzsym@snowman@nosefill{\sctkzsym@snowman@nose}%
     \def\sctkzsym@snowman@mouthstroke{\sctkzsym@defaultcolor}%
     \def\sctkzsym@snowman@sweatstroke{\sctkzsym@snowman@sweat}%
     \def\sctkzsym@snowman@sweatfill{\sctkzsym@defaultanticolor}%
@@ -277,6 +283,9 @@
   % check eyes (currently eyes=<color> not supported; falling back to default-(anti)color)
   \sctkzsym@hndl@key@withbool{snowman}{eyes}%
   \def\sctkzsym@snowman@eyepath{\path[fill=\sctkzsym@snowman@eyefill]}%
+  % check nose
+  \sctkzsym@hndl@key@withbool{snowman}{nose}%
+  \def\sctkzsym@snowman@nosepath{\path[draw=\sctkzsym@snowman@nosestroke,fill=\sctkzsym@snowman@nosefill]}%
   % check mouth (currently mouth=<color> not supported; falling back to default-(anti)color)
   \sctkzsym@hndl@key@withword{snowman}{mouthshape}%
   \sctkzsym@hndl@key@withbool{snowman}{mouth}%

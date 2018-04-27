@@ -37,6 +37,14 @@
       \sctkzsym@snowman@eyepath (0.40,0.56) circle (0.02 and 0.03);
       \sctkzsym@snowman@eyepath (0.60,0.56) circle (0.02 and 0.03);
     \fi
+    \ifsctkzsym@snowman@nose
+      \sctkzsym@snowman@nosepath
+        (0.49,0.50) .. controls (0.52,0.51) and (0.51,0.54) ..
+        (0.48,0.54) .. controls (0.46,0.54) and (0.40,0.52) ..
+        (0.40,0.52) .. controls (0.39,0.51) and (0.46,0.50) ..
+        (0.49,0.50) --
+        cycle;
+      \fi
     \ifsctkzsym@snowman@mouth
     \ifx\sctkzsym@snowman@mouthshape\sctkzsym@snowman@mouthshape@iii
       \sctkzsym@snowman@mouthpath (0.40,0.47) -- (0.60,0.47);
