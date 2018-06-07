@@ -70,7 +70,10 @@ See [LICENSE](./LICENSE).
     - Add new keys "mikan" and "leaf" (Thanks: @k16shikano)
     - Stopped loading amsthm package by default
  - 2018-01-15 Version 1.2c
-    - Add a new key "broom"  (Thanks: @zr-tex8r)
+    - Add a new key "broom" (Thanks: @zr-tex8r)
+ - 2018-06-07 Version 1.2d
+    - Add new keys "nose" and "note"
+    - Add a new command `\scsnowmannumeral`
 
 --------------------
 Copyright (c) 2015-2018 Hironobu Yamashita
