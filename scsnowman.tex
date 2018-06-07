@@ -14,6 +14,7 @@
 \usepackage{doc}
 \usepackage[svgnames]{xcolor}
 \usepackage{scsnowman}
+\pagenumbering{enumsnowman}
 \GetFileInfo{scsnowman.sty}
 \usepackage{array}
 \usepackage{amsthm}
@@ -47,9 +48,9 @@ The \LaTeX\ package \Lpack{scsnowman} provides a command \verb+\scsnowman+, whic
 many variants of snowmen. This package utilizes Ti\emph{k}Z for drawing snowmen.
 \begin{figure}[htb]\centering
 \scsnowmandefault{adjustbaseline}
-\scsnowman[scale=3,hat,snow,arms]\scsnowman[scale=3,hat=RoyalBlue,muffler=Green]
-\scsnowman\scsnowman[scale=3]\scsnowman[scale=5]\par
-\scsnowmandefault{scale=5,hat,muffler=Red}
+\scsnowman[scale=5,hat,snow,arms]\scsnowman[scale=5,hat=RoyalBlue,muffler=Green]
+\scsnowman[scale=2]\scsnowman[scale=5]\scsnowman[scale=7]\par
+\scsnowmandefault{scale=6,hat,muffler=Red}
 \scsnowman[mouthshape=smile]
 \scsnowman[mouthshape=frown]
 \scsnowman[mouthshape=tight]
@@ -67,6 +68,15 @@ The package is maintained on GitHub:
 \item \url{https://github.com/aminophen/scsnowman}
 \end{itemize}
 
+\begin{figure}[htb]\centering
+\scsnowmandefault{adjustbaseline,scale=8,buttons=RoyalBlue}
+\scsnowman[hat=Green,muffler=Red,arms=Brown,buttons=Green,broom=DarkGoldenrod]
+\scsnowman[hat=Green,body,muffler=Red,arms=Brown,nose=Orange,snow=SkyBlue]
+\scsnowman[snow=SkyBlue,note=Red]
+\scsnowman[hat=Green,muffler=RoyalBlue,arms=Brown,buttons=Green,broom=DarkGoldenrod]
+\end{figure}
+
+\clearpage
 \tableofcontents\clearpage
 
 \section{The History of Snowman in Unicode}
@@ -208,8 +218,8 @@ This will be helpful when a snowman appears to be ``floating in the air.''\\[1ex
 Following \emph{key}s take a \emph{value} which specifies color. When the \emph{value} is omitted,
 it reacts to the surrounding text color:
 \begin{quote}
-  \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{sweat}, \Lopt{arms},
-  \Lopt{hat}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}, \Lopt{broom}
+  \Lopt{body}, \Lopt{eyes}, \Lopt{mouth}, \Lopt{nose}, \Lopt{sweat}, \Lopt{arms},
+  \Lopt{hat}, \Lopt{muffler}, \Lopt{buttons}, \Lopt{snow}, \Lopt{note}, \Lopt{broom}
 \end{quote}
 The following \emph{key}s require one specific \emph{value}:
 \begin{quote}
@@ -225,28 +235,28 @@ The key \Lopt{mouthshape} takes one of the followings: \Lopt{smile}, \Lopt{tight
 Here are some examples:\\[1ex]
 \begin{minipage}{.7\textwidth}\begin{verbatim}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
-  \scsnowman[scale=3,hat,snow,arms,buttons]
+  \scsnowman[scale=3,hat,snow,arms,buttons,note]
   \scsnowman[scale=2,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]
 \end{verbatim}\end{minipage}
 \begin{minipage}{.25\textwidth}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
-  \scsnowman[scale=3,hat,snow,arms,buttons]
+  \scsnowman[scale=3,hat,snow,arms,buttons,note]
   \scsnowman[scale=2,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]
 \end{minipage}\\[1ex]
 \begin{minipage}{.7\textwidth}\begin{verbatim}
  {\color{blue}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
-  \scsnowman[scale=3,hat,snow,arms,buttons]
-  \scsnowman[scale=2,muffler=red,arms,broom=brown]
+  \scsnowman[scale=2,hat,snow,arms,buttons,note]
+  \scsnowman[scale=3,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]}
 \end{verbatim}\end{minipage}
 \begin{minipage}{.25\textwidth}
  {\color{blue}
   \scsnowman[scale=2,body,hat=red,muffler=blue]
-  \scsnowman[scale=3,hat,snow,arms,buttons]
-  \scsnowman[scale=2,muffler=red,arms,broom=brown]
+  \scsnowman[scale=2,hat,snow,arms,buttons,note]
+  \scsnowman[scale=3,muffler=red,arms,broom=brown]
   \scsnowman[scale=2,mouthshape=frown,hat=green]}
 \end{minipage}
 
@@ -263,14 +273,14 @@ Here are some examples:\\[1ex]
 \begin{minipage}{.6\textwidth}\begin{verbatim}
   \scsnowmandefault{scale=5,hat=red}
   \scsnowman
-  \scsnowman[body,muffler=blue]
-  \scsnowman[hat=green,snow]
+  \scsnowman[body,muffler=blue,arms]
+  \scsnowman[hat=green,snow,nose=orange]
 \end{verbatim}\end{minipage}
 \begin{minipage}{.35\textwidth}
   \scsnowmandefault{scale=5,hat=red}
   \scsnowman
-  \scsnowman[body,muffler=blue]
-  \scsnowman[hat=green,snow]
+  \scsnowman[body,muffler=blue,arms]
+  \scsnowman[hat=green,snow,nose=orange]
 \end{minipage}
 
 \section{Adding User-defined Snowman Shapes}\label{usescsnowmanlibrary}
@@ -400,6 +410,26 @@ Here is an example:\\[1ex]
   \scsnowman[eyes=false,mouth=false,mikan=orange,leaf=green]
 \end{minipage}
 
+\subsection{Replacing All ``8'' with Snowmen}
+
+You can replace all ``8'' inside an arabic number expression with snowmen
+\scsnowman\ by using \verb+\scsnowmannumeral+.
+Here is an example:\\[1ex]
+\begin{minipage}{.85\textwidth}\begin{verbatim}
+  \scsnowmandefault{adjustbaseline}\scsnowmannumeral{18882}
+  \scsnowmannumeral[muffler=blue,scale=1.5]{4283859}
+\end{verbatim}\end{minipage}
+\begin{minipage}{.1\textwidth}
+  \scsnowmandefault{adjustbaseline}\scsnowmannumeral{18882}
+  \scsnowmannumeral[muffler=blue,scale=1.5]{4283859}
+\end{minipage}\medskip
+
+You can also replace all ``8'' inside the page numbering with snowmen
+\scsnowman\ by adding \verb+\pagenumbering{enumsnowman}+.
+This documentation itself is an example!
+
+\clearpage
+
 \section*{Version History}
 
 This is the summary of changes. For more detail, see GitHub repository.
@@ -419,7 +449,9 @@ Version 1.2 & 2017-08-08 & Default color reacts to surrounding text color \\
 Version 1.2a & 2017-11-25 & Fix a bug in scaling with \Lopt{adjustbaseline} \\
 Version 1.2b & 2018-01-05 & Add new keys \Lopt{mikan}, \Lopt{leaf} for drawing `kagami-mochi' \\
              &            & Stopped loading \Lpack{amsthm} by default \\
-Version 1.2c & 2018-01-15 & Add a new key \Lopt{broom}
+Version 1.2c & 2018-01-15 & Add a new key \Lopt{broom} \\
+Version 1.2d & 2018-06-07 & Add new keys \Lopt{nose}, \Lopt{note} \\
+             &            & Add a new command \verb+\scsnowmannumeral+ \\
 \end{tabular}
 \end{table}
 
@@ -437,7 +469,7 @@ Version 1.2c & 2018-01-15 & Add a new key \Lopt{broom}
 \href{http://acetaminophen.hatenablog.com/entry/2014/09/05/090313}{「\TeX{}でゆきだるま」をもっとたくさん}
 \ --- Acetaminophen's diary
 \bibitem{ZR1}
-\href{http://d.hatena.ne.jp/zrbabbler/20140911/1410439004}{Unicode の例の雪だるまは多分アレ}
+\href{http://d.hatena.ne.jp/zrbabbler/20140911/1410439004}{Unicodeの例の雪だるまは多分アレ}
 \ --- マクロツイーター
 \bibitem{ACE2}
 \href{http://acetaminophen.hatenablog.com/entry/2015/12/13/080226}{\TeX{}でゆきだるまを“もっともっと”たくさん}

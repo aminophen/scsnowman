@@ -10,7 +10,7 @@
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2018/01/15 v1.2c Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2018/06/07 v1.2d Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2017/08/08]
@@ -200,6 +200,7 @@
   \def\sctkzsym@snowman@muffler{false}%
   \def\sctkzsym@snowman@buttons{false}%
   \def\sctkzsym@snowman@snow{false}%
+  \def\sctkzsym@snowman@note{false}%
   \def\sctkzsym@snowman@adjustbaseline{false}%
   \def\sctkzsym@snowman@mikan{false}%
   \def\sctkzsym@snowman@leaf{false}%
@@ -225,6 +226,7 @@
 \sctkzsym@define@key@withbool{snowman}{muffler}
 \sctkzsym@define@key@withbool{snowman}{buttons}
 \sctkzsym@define@key@withbool{snowman}{snow}
+\sctkzsym@define@key@withbool{snowman}{note}
 \sctkzsym@define@key@withbool{snowman}{adjustbaseline}
 \sctkzsym@define@key@withbool{snowman}{mikan}
 \sctkzsym@define@key@withbool{snowman}{leaf}
@@ -311,9 +313,13 @@
   \def\sctkzsym@snowman@buttonpath{\path[draw=\sctkzsym@snowman@buttonstroke,fill=\sctkzsym@snowman@buttonfill]}%
   % check snow
   \sctkzsym@hndl@key@withbool{snowman}{snow}%
+  % check note
+  \sctkzsym@hndl@key@withbool{snowman}{note}%
+  \def\sctkzsym@snowman@notefill{\sctkzsym@snowman@note}%
+  \def\sctkzsym@snowman@notepath{\path[fill=\sctkzsym@snowman@notefill]}%
   % check adjustbaseline
   \sctkzsym@hndl@key@onlybool{snowman}{adjustbaseline}%
-  % check mikan
+  % check mikan/leaf
   \sctkzsym@hndl@key@withbool{snowman}{mikan}%
   \sctkzsym@hndl@key@withbool{snowman}{leaf}%
   \def\sctkzsym@snowman@mikanstroke{\sctkzsym@snowman@mikan}%

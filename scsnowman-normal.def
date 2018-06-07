@@ -10,7 +10,7 @@
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesFile{scsnowman-normal.def}[2018/01/15 v1.2c scsnowman definition (normal)]
+\ProvidesFile{scsnowman-normal.def}[2018/06/07 v1.2d scsnowman definition (normal)]
 \def\sctkzsym@snowman@shape@normal{%
   \setlength{\sctkzsym@coord@baseline}{%
     \ifsctkzsym@snowman@adjustbaseline
@@ -134,19 +134,55 @@
       \sctkzsym@snowman@buttonpath (0.50,0.29) circle (0.03);
     \fi\fi
     \ifsctkzsym@snowman@snow
-      \ifsctkzsym@snowman@broom
+     \ifsctkzsym@snowman@broom
       \sctkzsym@snowman@snowpath (0.13,0.81) circle (0.04);
-      \else
+     \else
       \sctkzsym@snowman@snowpath (0.07,0.28) circle (0.04);
-      \sctkzsym@snowman@snowpath (0.08,0.68) circle (0.04);
       \sctkzsym@snowman@snowpath (0.13,0.55) circle (0.04);
+     \ifsctkzsym@snowman@note\else
+      \sctkzsym@snowman@snowpath (0.08,0.68) circle (0.04);
       \sctkzsym@snowman@snowpath (0.23,0.76) circle (0.04);
-      \fi
+     \fi
+     \fi
       \sctkzsym@snowman@snowpath (0.42,0.89) circle (0.04);
       \sctkzsym@snowman@snowpath (0.74,0.89) circle (0.04);
       \sctkzsym@snowman@snowpath (0.88,0.73) circle (0.04);
       \sctkzsym@snowman@snowpath (0.92,0.53) circle (0.04);
       \sctkzsym@snowman@snowpath (0.94,0.23) circle (0.04);
+    \fi
+    \ifsctkzsym@snowman@note
+      \sctkzsym@snowman@notepath % musical note (eighth note, quaver)
+        (0.119,0.789) .. controls (0.114,0.788) and (0.114,0.788) ..
+        (0.115,0.781) .. controls (0.122,0.740) and (0.124,0.732) ..
+        (0.125,0.728) .. controls (0.127,0.717) and (0.127,0.717) ..
+        (0.118,0.717) .. controls (0.105,0.717) and (0.096,0.709) ..
+        (0.096,0.698) .. controls (0.096,0.691) and (0.100,0.686) ..
+        (0.106,0.683) .. controls (0.116,0.679) and (0.131,0.687) ..
+        (0.134,0.698) .. controls (0.135,0.700) and (0.134,0.710) ..
+        (0.132,0.720) .. controls (0.126,0.752) and (0.125,0.764) ..
+        (0.124,0.768) .. controls (0.124,0.773) and (0.124,0.773) ..
+        (0.132,0.773) .. controls (0.141,0.774) and (0.145,0.771) ..
+        (0.148,0.764) .. controls (0.150,0.760) and (0.154,0.758) ..
+        (0.155,0.761) .. controls (0.156,0.761) and (0.155,0.766) ..
+        (0.153,0.771) .. controls (0.151,0.780) and (0.146,0.785) ..
+        (0.139,0.789) .. controls (0.136,0.791) and (0.126,0.791) ..
+        (0.119,0.789) --
+        cycle;
+      \sctkzsym@snowman@notepath % wavy line
+        (0.235,0.770) .. controls (0.234,0.769) and (0.232,0.765) ..
+        (0.231,0.761) .. controls (0.228,0.750) and (0.223,0.749) ..
+        (0.210,0.760) .. controls (0.203,0.766) and (0.201,0.766) ..
+        (0.195,0.766) .. controls (0.186,0.766) and (0.179,0.761) ..
+        (0.174,0.750) .. controls (0.170,0.742) and (0.169,0.738) ..
+        (0.172,0.735) .. controls (0.176,0.732) and (0.179,0.734) ..
+        (0.183,0.741) .. controls (0.187,0.750) and (0.191,0.755) ..
+        (0.194,0.755) .. controls (0.196,0.755) and (0.200,0.752) ..
+        (0.203,0.749) .. controls (0.210,0.743) and (0.220,0.738) ..
+        (0.225,0.738) .. controls (0.231,0.738) and (0.237,0.742) ..
+        (0.241,0.749) .. controls (0.245,0.757) and (0.246,0.766) ..
+        (0.242,0.770) .. controls (0.239,0.772) and (0.238,0.772) ..
+        (0.235,0.770) --
+        cycle;
     \fi
   \end{tikzpicture}%
   \sctkzsym@endyokobox
