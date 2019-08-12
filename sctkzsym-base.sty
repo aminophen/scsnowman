@@ -3,14 +3,14 @@
 %% Maintained on GitHub:
 %% https://github.com/aminophen/scsnowman
 %%
-%% Copyright (c) 2015-2018 Hironobu Yamashita
+%% Copyright (c) 2015-2019 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2018/01/15 v1.2c Base for emoji variants using TikZ]
+\ProvidesPackage{sctkzsym-base}[2019/08/12 v1.2e Base for emoji variants using TikZ]
 \RequirePackage{tikz}
 \RequirePackage{keyval}
 %
@@ -116,7 +116,7 @@
     \fi
   \fi
 }
-\newcommand{\sctkzsym@hndl@key@withword}[2]{%
+\newcommand{\sctkzsym@hndl@key@withword}[2]{{%
   % initialize
   \@tempcnta\@ne
   \let\sctkzsym@status\relax
@@ -134,7 +134,7 @@
   \ifx\sctkzsym@status\relax
     \PackageError{sc#1}{Unsupported value `\csname sctkzsym@#1@#2\endcsname' for #2}\@ehc
   \fi
-}
+}}
 %
 % setup for tikzpicture
 \newlength{\sctkzsym@coord@baseline}

@@ -1,0 +1,29 @@
+% https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=2629
+% 2ページ目以降のヘッダのゆきだるまが1個しか出なければバグ
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{fancyhdr}
+\usepackage{scsnowman}
+
+\newcounter{yuki}
+\newcounter{bunsyo}
+
+\pagestyle{fancy}
+
+\chead{%
+  \setcounter{yuki}{0}
+  \loop\ifnum\theyuki<\thepage
+    \hfill\scsnowman\stepcounter{yuki}
+  \repeat
+  \hfill
+}
+
+\begin{document}
+
+\loop\ifnum\thebunsyo<10
+これは\thepage ページ目の文。
+\scsnowman[scale=5,hat,muffler=red,mouthshape=smile]% にっこり
+\scsnowman[scale=5,hat,muffler=red,mouthshape=frown]% しかめっ面
+\scsnowman[scale=5,hat,muffler=red,mouthshape=tight]% 真一文字
+\clearpage \stepcounter{bunsyo}\repeat
+
+\end{document}
