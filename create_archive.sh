@@ -18,6 +18,8 @@ rm $TMP/$PROJECT/create_archive.sh
 perl -pi.bak -0777 -e "s/## Samples.*## Requirements/## Requirements/gs" $TMP/$PROJECT/README.md
 perl -pi.bak -0777 -e "s/## Version History.*Copyright/Copyright/gs" $TMP/$PROJECT/README.md
 rm -f $TMP/$PROJECT/README.md.bak
+ls $TMP/$PROJECT/*.tex | grep -v scsnowman.tex | grep -v scsnowman-sample.tex | xargs rm
+ls $TMP/$PROJECT/*.pdf | grep -v scsnowman.pdf | grep -v scsnowman-sample.pdf | xargs rm
 
 cd $TMP && zip -r $PWDF/$PROJECT.zip $PROJECT
 rm -rf $TMP/$PROJECT
