@@ -14,6 +14,7 @@ echo " * Create $PROJECT.zip ($RELEASEDATE)"
 git archive --format=tar --prefix=$PROJECT/ HEAD | (cd $TMP && tar xf -)
 rm $TMP/$PROJECT/.gitignore
 rm $TMP/$PROJECT/create_archive.sh
+rm $TMP/$PROJECT/Makefile
 #perl -pi.bak -e "s/\\\$RELEASEDATE/$RELEASEDATE/g" $TMP/$PROJECT/README.md
 perl -pi.bak -0777 -e "s/## Samples.*## Requirements/## Requirements/gs" $TMP/$PROJECT/README.md
 perl -pi.bak -0777 -e "s/## Version History.*Copyright/Copyright/gs" $TMP/$PROJECT/README.md

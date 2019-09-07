@@ -24,7 +24,6 @@ scsnowman-looptest.pdf: scsnowman.sty scsnowman-looptest.tex
 .PHONY: install clean
 install:
 	mkdir -p ${TEXMF}/doc/latex/scsnowman
-	cp ./Makefile ${TEXMF}/doc/latex/scsnowman/
 	cp ./LICENSE ${TEXMF}/doc/latex/scsnowman/
 	cp ./README.md ${TEXMF}/doc/latex/scsnowman/
 	cp ./*.pdf ${TEXMF}/doc/latex/scsnowman/
