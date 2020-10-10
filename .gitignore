@@ -195,5 +195,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# scsnowman-specific: fonts in documentation
+*.otf
+*.ttf
+*.ttc
+
 # tests
 tests/*.pdf
