@@ -247,7 +247,8 @@
   %
   % check body; determine whether "black snowman" or "white snowman"
   \sctkzsym@hndl@key@withbool{snowman}{body}%
-  \ifsctkzsym@snowman@body % "black snowman"; black snow; white eyes/mouth/stroke
+  \ifsctkzsym@snowman@body
+    % "black snowman"; black snow; white eyes/mouth/stroke
     \def\sctkzsym@snowman@bodystroke{\sctkzsym@snowman@body}%
     \def\sctkzsym@snowman@bodyfill{\sctkzsym@snowman@body}%
     \def\sctkzsym@snowman@bodypath{\path[draw=\sctkzsym@snowman@bodystroke,fill=\sctkzsym@snowman@bodyfill]}%
@@ -264,7 +265,8 @@
     \def\sctkzsym@snowman@mufflerfill{\sctkzsym@snowman@muffler}%
     \def\sctkzsym@snowman@buttonstroke{\sctkzsym@defaultanticolor}%
     \def\sctkzsym@snowman@buttonfill{\sctkzsym@snowman@buttons}%
-  \else                    % "white snowman"; white snow; black eyes/mouth/stroke; bodystroke should be there
+  \else
+    % "white snowman"; white snow; black eyes/mouth/stroke; bodystroke should be there
     \def\sctkzsym@snowman@bodystroke{\sctkzsym@defaultcolor}%
     \def\sctkzsym@snowman@bodyfill{}%
     \def\sctkzsym@snowman@bodypath{\path[draw=\sctkzsym@snowman@bodystroke]}%
@@ -282,56 +284,69 @@
     \def\sctkzsym@snowman@buttonstroke{\sctkzsym@snowman@buttons}%
     \def\sctkzsym@snowman@buttonfill{\sctkzsym@snowman@buttons}%
   \fi
-  % check eyes (currently eyes=<color> not supported; falling back to default-(anti)color)
+  % check eyes (only fill)
+  % [TODO] eyes=<color> unsupported; falling back to default-(anti)color)
   \sctkzsym@hndl@key@withbool{snowman}{eyes}%
-  \def\sctkzsym@snowman@eyepath{\path[fill=\sctkzsym@snowman@eyefill]}%
+  \def\sctkzsym@snowman@eyepath
+    {\path[fill=\sctkzsym@snowman@eyefill]}%
   % check nose
   \sctkzsym@hndl@key@withbool{snowman}{nose}%
-  \def\sctkzsym@snowman@nosepath{\path[draw=\sctkzsym@snowman@nosestroke,fill=\sctkzsym@snowman@nosefill]}%
-  % check mouth (currently mouth=<color> not supported; falling back to default-(anti)color)
+  \def\sctkzsym@snowman@nosepath
+    {\path[draw=\sctkzsym@snowman@nosestroke,fill=\sctkzsym@snowman@nosefill]}%
+  % check mouth (only stroke)
+  % [TODO] mouth=<color> unsupported; falling back to default-(anti)color)
   \sctkzsym@hndl@key@withword{snowman}{mouthshape}%
   \sctkzsym@hndl@key@withbool{snowman}{mouth}%
-  \def\sctkzsym@snowman@mouthpath{\path[draw=\sctkzsym@snowman@mouthstroke]}%
+  \def\sctkzsym@snowman@mouthpath
+    {\path[draw=\sctkzsym@snowman@mouthstroke]}%
   % check sweat
   \sctkzsym@hndl@key@withbool{snowman}{sweat}%
-  \def\sctkzsym@snowman@sweatpath{\path[draw=\sctkzsym@snowman@sweatstroke,fill=\sctkzsym@snowman@sweatfill]}%
+  \def\sctkzsym@snowman@sweatpath
+    {\path[draw=\sctkzsym@snowman@sweatstroke,fill=\sctkzsym@snowman@sweatfill]}%
   % check hat
   \sctkzsym@hndl@key@withbool{snowman}{hat}%
   \def\sctkzsym@snowman@hatstroke{\sctkzsym@snowman@hat}%
   \def\sctkzsym@snowman@hatfill{\sctkzsym@snowman@hat}%
-  \def\sctkzsym@snowman@hatpath{\path[draw=\sctkzsym@snowman@hatstroke,fill=\sctkzsym@snowman@hatfill]}%
+  \def\sctkzsym@snowman@hatpath
+    {\path[draw=\sctkzsym@snowman@hatstroke,fill=\sctkzsym@snowman@hatfill]}%
   % check arms
   \sctkzsym@hndl@key@withbool{snowman}{arms}%
   \def\sctkzsym@snowman@armsstroke{\sctkzsym@snowman@arms}%
   \def\sctkzsym@snowman@armsfill{\sctkzsym@snowman@arms}%
-  \def\sctkzsym@snowman@armspath{\path[draw=\sctkzsym@snowman@armsstroke,fill=\sctkzsym@snowman@armsfill]}%
+  \def\sctkzsym@snowman@armspath
+    {\path[draw=\sctkzsym@snowman@armsstroke,fill=\sctkzsym@snowman@armsfill]}%
   % check muffler
   \sctkzsym@hndl@key@withbool{snowman}{muffler}%
-  \def\sctkzsym@snowman@mufflerpath{\path[draw=\sctkzsym@snowman@mufflerstroke,fill=\sctkzsym@snowman@mufflerfill]}%
+  \def\sctkzsym@snowman@mufflerpath
+    {\path[draw=\sctkzsym@snowman@mufflerstroke,fill=\sctkzsym@snowman@mufflerfill]}%
   % check buttons
   \sctkzsym@hndl@key@withbool{snowman}{buttons}%
-  \def\sctkzsym@snowman@buttonpath{\path[draw=\sctkzsym@snowman@buttonstroke,fill=\sctkzsym@snowman@buttonfill]}%
+  \def\sctkzsym@snowman@buttonpath
+    {\path[draw=\sctkzsym@snowman@buttonstroke,fill=\sctkzsym@snowman@buttonfill]}%
   % check snow
   \sctkzsym@hndl@key@withbool{snowman}{snow}%
-  % check note
+  % check note (only fill)
   \sctkzsym@hndl@key@withbool{snowman}{note}%
   \def\sctkzsym@snowman@notefill{\sctkzsym@snowman@note}%
   \def\sctkzsym@snowman@notepath{\path[fill=\sctkzsym@snowman@notefill]}%
-  % check adjustbaseline
-  \sctkzsym@hndl@key@onlybool{snowman}{adjustbaseline}%
   % check mikan/leaf
   \sctkzsym@hndl@key@withbool{snowman}{mikan}%
   \sctkzsym@hndl@key@withbool{snowman}{leaf}%
   \def\sctkzsym@snowman@mikanstroke{\sctkzsym@snowman@mikan}%
   \def\sctkzsym@snowman@mikanfill{\sctkzsym@snowman@mikan}%
-  \def\sctkzsym@snowman@mikanpath{\path[draw=\sctkzsym@snowman@mikanstroke,fill=\sctkzsym@snowman@mikanfill]}%
+  \def\sctkzsym@snowman@mikanpath
+    {\path[draw=\sctkzsym@snowman@mikanstroke,fill=\sctkzsym@snowman@mikanfill]}%
   \def\sctkzsym@snowman@leafstroke{\sctkzsym@snowman@leaf}%
   \def\sctkzsym@snowman@leaffill{\sctkzsym@snowman@leaf}%
-  \def\sctkzsym@snowman@leafpath{\path[draw=\sctkzsym@snowman@leafstroke,fill=\sctkzsym@snowman@leaffill]}%
-  % check broom
+  \def\sctkzsym@snowman@leafpath
+    {\path[draw=\sctkzsym@snowman@leafstroke,fill=\sctkzsym@snowman@leaffill]}%
+  % check broom (only stroke)
   \sctkzsym@hndl@key@withbool{snowman}{broom}%
   \def\sctkzsym@snowman@broomstroke{\sctkzsym@snowman@broom}%
   \def\sctkzsym@snowman@broompath{\path[draw=\sctkzsym@snowman@broomstroke]}%
+  %
+  % check adjustbaseline
+  \sctkzsym@hndl@key@onlybool{snowman}{adjustbaseline}%
   %
   % drawing snowman
   \set@sctkzsym@coord@scl{\sctkzsym@snowman@scale}%
