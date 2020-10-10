@@ -3,19 +3,26 @@
 %% Maintained on GitHub:
 %% https://github.com/aminophen/scsnowman
 %%
-%% Copyright (c) 2015-2019 Hironobu Yamashita
+%% Copyright (c) 2015-2020 Hironobu Yamashita
 %%   Email   :  h.y.acetaminophen[a t]gmail.com
 %%   GitHub  :  https://github.com/aminophen
 %%   Blog    :  http://acetaminophen.hatenablog.com/
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sctkzsym-base}[2019/08/12 v1.2e Base for emoji variants using TikZ]
-\RequirePackage{tikz}
+\ProvidesPackage{sctkzsym-base}
+  [2020/10/10 v1.3a Base for emoji variants using TikZ]
+\RequirePackage{tikz}% pgfutil-latex.def requires everyshi
 \RequirePackage{keyval}
 %
-\ifx\kanjiskip\@undefined\else
-  \IfFileExists{pxeveryshi.sty}{\RequirePackage{pxeveryshi}}{}
+\ifx\pfmtversion\@undefined\else
+  \ifx\@EveryShipout@Output\@undefined
+    % LaTeX2e 2020-10-01: an emulation by ``everyshi-ltx.sty''
+    % => pLaTeX2e 2020-10-01 natively supports it
+  \else
+    % older: the real ``everyshi.sty'' is loaded
+    \IfFileExists{pxeveryshi.sty}{\RequirePackage{pxeveryshi}}{}
+  \fi
 \fi
 %
 % prepare for options
