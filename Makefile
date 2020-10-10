@@ -1,9 +1,9 @@
 KANJI = -kanji=utf8
-FONTMAP = -f ipaex.map -f ptex-ipaex.map
+#FONTMAP = -f ipaex.map -f ptex-ipaex.map
+FONTMAP = -f haranoaji.map -f ptex-haranoaji.map
 TEXMF = $(shell kpsewhich -var-value=TEXMFHOME)
 
-all: scsnowman.pdf scsnowman-sample.pdf \
-	scsnowman-zrtest.pdf scsnowman-looptest.pdf
+all: scsnowman.pdf scsnowman-sample.pdf
 
 scsnowman.pdf: scsnowman.sty scsnowman.tex
 	lualatex scsnowman.tex
@@ -13,13 +13,6 @@ scsnowman-sample.pdf: scsnowman.sty scsnowman-sample.tex
 	platex scsnowman-sample.tex
 	platex scsnowman-sample.tex
 	dvipdfmx scsnowman-sample.dvi
-scsnowman-zrtest.pdf: scsnowman.sty scsnowman-zrtest.tex
-	pdflatex scsnowman-zrtest.tex
-	pdflatex scsnowman-zrtest.tex
-scsnowman-looptest.pdf: scsnowman.sty scsnowman-looptest.tex
-	platex scsnowman-looptest.tex
-	platex scsnowman-looptest.tex
-	dvipdfmx scsnowman-looptest.dvi
 
 .PHONY: install clean
 install:
