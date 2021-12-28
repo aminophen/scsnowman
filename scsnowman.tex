@@ -410,6 +410,26 @@ Here is an example:\\[1ex]
   \scsnowman[eyes=false,mouth=false,mikan=orange,leaf=green]
 \end{minipage}
 
+\subsection{Drawing ``\emph{Santa hat}''}
+
+Using \Lpack{scsnowman} package, you can also draw ``\emph{santa hat}''.
+
+Following \emph{key} is implemented for this usage:
+\begin{quote}
+  \Lopt{santa}
+\end{quote}
+
+Here is an example:\\[1ex]
+\begin{minipage}{.75\textwidth}\begin{verbatim}
+  \scsnowmandefault{scale=5.5}
+  \scsnowman[santa]
+  {\color{blue}\scsnowman[santa=red]}
+\end{verbatim}\end{minipage}
+\begin{minipage}{.2\textwidth}
+  \scsnowmandefault{scale=5.5}
+  \scsnowman[santa]{\color{blue}\scsnowman[santa=red]}
+\end{minipage}
+
 \subsection{Replacing All ``8'' with Snowmen}
 
 You can replace all ``8'' inside an arabic number expression with snowmen
