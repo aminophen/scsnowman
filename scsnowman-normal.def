@@ -78,6 +78,9 @@
     \fi
     \fi
     \ifsctkzsym@snowman@santa
+      %%% Reference(Japanese only):
+      %%% https://puripuri2100.hatenablog.com/entry/2018/12/25/000805
+      %%% https://gist.github.com/puripuri2100/3290dd78ad7387b4bc30c61d1bb84df5
       \sctkzsym@snowman@santa@hatpath % santa
         (0.35,0.72) .. controls (0.35,0.72) and (0.35,0.88) ..
         (0.50,0.88) .. controls (0.50,0.88) and (0.525,0.88) ..
