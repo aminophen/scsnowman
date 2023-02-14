@@ -74,7 +74,13 @@ See [LICENSE](./LICENSE).
  - 2018-06-07 Version 1.2d
     - Add new keys "nose" and "note"
     - Add a new command `\scsnowmannumeral`
+ - 2019-08-12 Version 1.2e
+    - Fix a bug of possible infinite loop
+ - 2020-10-10 Version 1.3a
+    - Update for new LaTeX with shipout hook
+ - 2023-02-14 Version 1.3b
+    - Fix a bug of upTeX engine detection
 
 --------------------
-Copyright (c) 2015-2018 Hironobu Yamashita
+Copyright (c) 2015-2023 Hironobu Yamashita
 http://acetaminophen.hatenablog.com/
