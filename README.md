@@ -80,6 +80,8 @@ See [LICENSE](./LICENSE).
     - Update for new LaTeX with shipout hook
  - 2023-02-14 Version 1.3b
     - Fix a bug of upTeX engine detection
+ - 2023-02-23 Version 1.3c
+    - Another bug fix of engine detection
 
 --------------------
 Copyright (c) 2015-2023 Hironobu Yamashita
