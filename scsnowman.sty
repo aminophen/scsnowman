@@ -10,7 +10,7 @@
 %%   Twitter :  @aminophen
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{scsnowman}[2023/02/14 v1.3b Snowman variants using TikZ]
+\ProvidesPackage{scsnowman}[2023/02/23 v1.3c Snowman variants using TikZ]
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{sctkzsym-base}}
 \ProcessOptions\relax
 \RequirePackage{sctkzsym-base}[2017/08/08]
@@ -176,11 +176,16 @@
 \DeclareTextCommand{\scsnowman@hy@eight}{PU}{\9046\003}% U+2603
 \DeclareTextCommand{\scsnowman@hy@eight}{PD1}{8}%fallback
 
-\ifnum \ifx\ucs\@undefined\z@\else\ucs"3000 \fi ="3000 %upTeX
+% upTeX since v0.10 has both \kchardef and \ucs.
+% N.B. TL2023 uses e-upTeX (euc/sjis) as a default engine of pLaTeX.
+% N.B. luatexja has \ucs, but neither \kchardef nor \kansujichar.
+\ifx\kchardef\@undefined \else
+  \ifnum\jis"2121="3000 %upTeX
   \begingroup
     \kansujichar8="2603
     \xdef\scsnowman@hy@eight{\kansuji8}
   \endgroup
+  \fi
 \fi
 
 %------------------------------- ZR something END
