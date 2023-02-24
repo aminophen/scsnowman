@@ -77,6 +77,32 @@
         cycle;
     \fi
     \fi
+    \ifsctkzsym@snowman@santa
+      %%% Reference(Japanese only):
+      %%% https://puripuri2100.hatenablog.com/entry/2018/12/25/000805
+      %%% https://gist.github.com/puripuri2100/3290dd78ad7387b4bc30c61d1bb84df5
+      \sctkzsym@snowman@santa@hatpath % santa
+        (0.35,0.72) .. controls (0.35,0.72) and (0.35,0.88) ..
+        (0.50,0.88) .. controls (0.50,0.88) and (0.525,0.88) ..
+        (0.58,0.88) .. controls (0.58,0.88) and (0.70,0.88) ..
+        (0.73,0.82) .. controls (0.73,0.82) and (0.73,0.82) ..
+        (0.72,0.81) .. controls (0.72,0.81) and (0.66,0.85) ..
+        (0.61,0.83) .. controls (0.61,0.83) and (0.66,0.78) ..
+        (0.65,0.72) .. controls (0.65,0.72) and (0.50,0.72) ..
+        (0.35,0.72) --
+        cycle;
+    \sctkzsym@snowman@santa@furpath % santa
+      (0.74,0.81) circle [radius=0.02];
+    \sctkzsym@snowman@santa@furpath % santa
+      (0.35,0.67) .. controls (0.35,0.67) and (0.32,0.675) ..
+      (0.32,0.70) .. controls (0.32,0.70) and (0.32,0.725) ..
+      (0.35,0.73) .. controls (0.35,0.73) and (0.50,0.74) ..
+      (0.65,0.73) .. controls (0.65,0.73) and (0.68,0.725) ..
+      (0.68,0.70) .. controls (0.68,0.70) and (0.68,0.675) ..
+      (0.65,0.67) .. controls (0.65,0.67) and (0.50,0.66) ..
+      (0.35,0.67) --
+      cycle;
+    \fi
     \ifsctkzsym@snowman@broom
       \sctkzsym@snowman@broompath[line width=0.08ex*\sctkzsym@coord@scl,line cap=butt]
         (0.03,0.06) -- (0.12,0.50);
